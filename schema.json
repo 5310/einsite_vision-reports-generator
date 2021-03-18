@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://einsite.ai/schema/report/0.1.json",
+  "title": "Report Schema",
+  "description": "Report definition to dynamically generate PDFs",
+  "type": "object",
+  "examples": [
+    {
+      "project": "Canyon Rock",
+      "site": "Forestville",
+      "date": "2021-02-01",
+      "equipment": [
+        {
+          "id": "CRL 15 - 988K",
+          "type": "Front Loader"
+        },
+        {
+          "id": "CRL 17 - 988K",
+          "type": "Front Loader"
+        },
+        {
+          "id": "CRL 13 - 988H",
+          "type": "Front Loader"
+        }
+      ],
+      "trips": [
+        {},
+        {
+          "base-readymix": 5,
+          "primary-quarry": 99,
+          "quarry-readymix": 20
+        },
+        {
+          "base-readymix": 6,
+          "base-quarry": 42,
+          "primary-quarry": 100,
+          "quarry-readymix": 30
+        }
+      ]
+    }
+  ],
+  "required": ["project", "site", "date", "equipment", "trips"],
+  "properties": {
+    "project": {
+      "type": "string"
+    },
+    "site": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "equipment": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type"],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "trips": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "base-pickup": {
+            "type": "integer"
+          },
+          "base-primary": {
+            "type": "integer"
+          },
+          "base-quarry": {
+            "type": "integer"
+          },
+          "base-readymix": {
+            "type": "integer"
+          },
+          "pickup-primary": {
+            "type": "integer"
+          },
+          "primary-quarry": {
+            "type": "integer"
+          },
+          "quarry-readymix": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
