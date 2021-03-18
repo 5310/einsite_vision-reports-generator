@@ -1,0 +1,33 @@
+{
+  "project": "Canyon Rock",
+  "site": "Forestville",
+  "date": "2021-02-01",
+  "equipment": [
+    {
+      "id": "CRL 15 - 988K",
+      "type": "Front Loader"
+    },
+    {
+      "id": "CRL 17 - 988K",
+      "type": "Front Loader"
+    },
+    {
+      "id": "CRL 13 - 988H",
+      "type": "Front Loader"
+    }
+  ],
+  "trips": [
+    {},
+    {
+      "base-readymix": 5,
+      "primary-quarry": 99,
+      "quarry-readymix": 20
+    },
+    {
+      "base-readymix": 6,
+      "base-quarry": 42,
+      "primary-quarry": 100,
+      "quarry-readymix": 30
+    }
+  ]
+}
