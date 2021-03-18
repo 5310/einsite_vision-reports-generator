@@ -39,7 +39,7 @@ body {
   min-height: 100vh;
 }
 
-img {
+:is(img, svg) {
   width: 100%;
   height: auto;
 }
@@ -166,4 +166,7 @@ img {
 #report > .activity > main > section > .map {
   grid-row: span 4;
   grid-column: span 4;
+}
+
+.heatmap-legend {
 }
