@@ -8,8 +8,25 @@
 
     <title>Einsite Vision · Daily Report</title>
 
-    <link rel="stylesheet" type="text/css" href="./index.css" />
-    <script type="module" defer src="./index.js"></script>
+    <style>
+      :root {
+        background: #efefef;
+
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14pt;
+      }
+
+      body {
+        min-height: 100vh;
+      }
+    </style>
+    
+    <script type="module">
+      import '/component/report.js'
+      import '/component/map.js'
+      import '/component/page.js'
+      import '/component/page-activity.js'
+    </script>
   </head>
 
   <body>
