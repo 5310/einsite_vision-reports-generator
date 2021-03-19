@@ -60,7 +60,9 @@ export default class VisionReport extends LitElement {
       ? html`
           <vision-report-page
             blank
-            .reportName=${this.reportName}
+            .pageNo="0"
+            .date=${this.data.date}
+            .reportName=${this.data.name}
           ></vision-report-page>
 
           ${this.data.equipment.map((equip, index) => {
@@ -76,7 +78,8 @@ export default class VisionReport extends LitElement {
 
           <vision-report-page
             .pageNo=${1 + 1 + this.data.equipment.length}
-            .reportName=${this.reportName}
+            .date=${this.data.date}
+            .reportName=${this.data.name}
           ></vision-report-page>
         `
       : html``
