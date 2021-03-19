@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'https://cdn.skypack.dev/lit-element'
 
-export default class VisionPage extends LitElement {
+export default class VisionReportPage extends LitElement {
   static get properties() {
     return {
       blank: { type: Boolean },
@@ -133,4 +133,4 @@ export default class VisionPage extends LitElement {
   }
 }
 
-customElements.define('vision-page', VisionPage)
+customElements.define('vision-report-page', VisionReportPage)

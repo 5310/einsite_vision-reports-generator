@@ -1,7 +1,6 @@
 import { LitElement, html, css } from 'https://cdn.skypack.dev/lit-element'
-import VisionPage from '/component/page.js'
 
-export default class VisionPageActivity extends LitElement {
+export default class VisionReportPageActivity extends LitElement {
   static get properties() {
     return {
       reportName: { type: String, attribute: 'report-name' },
@@ -53,12 +52,12 @@ export default class VisionPageActivity extends LitElement {
         text-transform: uppercase;
       }
 
-      vision-page > .map {
+      vision-report-page > .map {
         grid-area: span 7 / span 14;
         grid-row-start: 4;
       }
 
-      vision-page > .legend {
+      vision-report-page > .legend {
         grid-area: 1 / -8 / 3 / -2;
       }
     `
@@ -66,17 +65,17 @@ export default class VisionPageActivity extends LitElement {
 
   render() {
     return html`
-      <vision-page
+      <vision-report-page
         .reportName=${this.reportName}
         .date=${this.date}
         .pageTitle=${this.pageTitle}
         .pageNo=${this.pageNo}
       >
-        <vision-map class="map"></vision-map>
+        <vision-report-map class="map"></vision-report-map>
         <aside class="legend"></aside>
-      </vision-page>
+      </vision-report-page>
     `
   }
 }
 
-customElements.define('vision-page-activity', VisionPageActivity)
+customElements.define('vision-report-page-activity', VisionReportPageActivity)

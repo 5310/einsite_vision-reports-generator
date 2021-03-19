@@ -1,6 +1,6 @@
 import { LitElement, svg } from 'https://cdn.skypack.dev/lit-element'
 
-export default class VisionMap extends LitElement {
+export default class VisionReportMap extends LitElement {
   constructor() {
     super()
   }
@@ -704,4 +704,4 @@ export default class VisionMap extends LitElement {
   }
 }
 
-customElements.define('vision-map', VisionMap)
+customElements.define('vision-report-map', VisionReportMap)
