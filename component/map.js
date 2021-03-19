@@ -1,8 +1,20 @@
 import { LitElement, svg } from 'https://cdn.skypack.dev/lit-element'
 
 export default class VisionReportMap extends LitElement {
+  static get properties() {
+    return {
+      dataPath: { type: String, attribute: 'data-path' },
+      plants: { type: Boolean },
+      zones: { type: Object },
+      trips: { type: Array },
+    }
+  }
+
   constructor() {
     super()
+    this.plants = undefined
+    this.zones = undefined
+    this.trips = undefined
   }
 
   render() {
@@ -38,7 +50,7 @@ export default class VisionReportMap extends LitElement {
        fill-opacity="0.01"
        x="0"
        y="0"
-       href="/asset/map/canyon-rock/forestville/blank.png" />
+       href="${this.dataPath}/heatmaps/${this.zones.index}.png" />
     <rect
        id="shade"
        x="-193"
@@ -460,243 +472,221 @@ export default class VisionReportMap extends LitElement {
     <g
        id="graphs"
        style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none">
-      <g
-         id="bars"
-         style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none">
-        <image
-           id="bar-base"
-           x="366"
-           y="87"
-           width="120"
-           height="60"
-           fill="#ffffff"
-           fill-opacity="0.9"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" 
-           href="/asset/map/bar.png" />
-        <image
-           id="bar-readymix"
-           x="623"
-           y="135"
-           width="120"
-           height="60"
-           fill="#ffffff"
-           fill-opacity="0.9"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" 
-           href="/asset/map/bar.png" />
-        <image
-           id="bar-recycle"
-           x="553"
-           y="219"
-           width="120"
-           height="60"
-           fill="#ffffff"
-           fill-opacity="0.9"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" 
-           href="/asset/map/bar.png" />
-        <image
-           id="bar-wash"
-           x="349"
-           y="313"
-           width="120"
-           height="60"
-           fill="#ffffff"
-           fill-opacity="0.9"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" 
-           href="/asset/map/bar.png" />
-        <image
-           id="bar-main"
-           x="236"
-           y="124"
-           width="120"
-           height="60"
-           fill="#ffffff"
-           fill-opacity="0.9"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" 
-           href="/asset/map/bar.png" />
-        <image
-           id="bar-oversize"
-           x="201"
-           y="209"
-           width="120"
-           height="60"
-           fill="#ffffff"
-           fill-opacity="0.9"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" 
-           href="/asset/map/bar.png" />
-      </g>
-      <g
-         id="pies"
-         style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none">
-        <image
-           id="pie-quarry"
-           opacity="0.9"
-           x="29.999901"
-           y="155"
-           width="96"
-           height="97.919998"
-           fill="#ffffff"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" 
-           href="/asset/map/pie.png" />
-        <image
-           id="pie-base"
-           opacity="0.9"
-           x="690"
-           y="219"
-           width="96"
-           height="96"
-           fill="#ffffff"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" 
-           href="/asset/map/pie.png" />
-        <image
-           id="pie-readymix"
-           opacity="0.9"
-           x="550"
-           y="19"
-           width="96"
-           height="96"
-           fill="#ffffff"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" 
-           href="/asset/map/pie.png" />
-        <image
-           id="pie-pickup"
-           opacity="0.9"
-           x="690"
-           y="337"
-           width="96"
-           height="96"
-           fill="#ffffff"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" 
-           href="/asset/map/pie.png" />
-        <image
-           id="pie-primary"
-           opacity="0.9"
-           x="151"
-           y="335"
-           width="96"
-           height="96"
-           fill="#ffffff"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" 
-           href="/asset/map/pie.png" />
-        <image
-           id="pie-unknown"
-           opacity="0.9"
-           x="29.999901"
-           y="335"
-           width="96"
-           height="96"
-           fill="#ffffff"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" 
-           href="/asset/map/pie.png" />
-      </g>
-      <g
-         id="trips"
-         style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none">
-        <text
-           id="trip-primary-quarry"
-           fill="#ffffff"
-           stroke="#3e3e3e"
-           stroke-width="2"
-           stroke-linejoin="round"
-           xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
-           font-family="'Open Sans Condensed'"
-           font-size="16px"
-           letter-spacing="0.06em"><tspan
-             x="308.26401"
-             y="326.207"
-             id="tspan96"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">789</tspan></text>
-        <text
-           id="trip-quarry-recycle"
-           fill="#ffffff"
-           stroke="#3e3e3e"
-           stroke-width="2"
-           stroke-linejoin="round"
-           xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
-           font-family="'Open Sans Condensed'"
-           font-size="16px"
-           letter-spacing="0.06em"><tspan
-             x="431.04199"
-             y="244.207"
-             id="tspan99"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">789</tspan></text>
-        <text
-           id="trip-quarry-readymix"
-           fill="#ffffff"
-           stroke="#3e3e3e"
-           stroke-width="2"
-           stroke-linejoin="round"
-           xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
-           font-family="'Open Sans Condensed'"
-           font-size="16px"
-           letter-spacing="0.06em"><tspan
-             x="504.70801"
-             y="190.207"
-             id="tspan102"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">789</tspan></text>
-        <text
-           id="trip-readymix-recycle"
-           fill="#ffffff"
-           stroke="#3e3e3e"
-           stroke-width="2"
-           stroke-linejoin="round"
-           xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
-           font-family="'Open Sans Condensed'"
-           font-size="16px"
-           letter-spacing="0.06em"><tspan
-             x="578.375"
-             y="163.207"
-             id="tspan105"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">789</tspan></text>
-        <text
-           id="trip-pickup-recycle"
-           fill="#ffffff"
-           stroke="#3e3e3e"
-           stroke-width="2"
-           stroke-linejoin="round"
-           xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
-           font-family="'Open Sans Condensed'"
-           font-size="16px"
-           letter-spacing="0.06em"><tspan
-             x="608.59698"
-             y="342.207"
-             id="tspan108"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">789</tspan></text>
-        <text
-           id="trip-primary-recycle"
-           fill="#ffffff"
-           stroke="#3e3e3e"
-           stroke-width="2"
-           stroke-linejoin="round"
-           xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
-           font-family="'Open Sans Condensed'"
-           font-size="16px"
-           letter-spacing="0.06em"><tspan
-             x="551.93103"
-             y="341.87399"
-             id="tspan111"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">789</tspan></text>
-        <text
-           id="trip-pickup-primary"
-           fill="#ffffff"
-           stroke="#3e3e3e"
-           stroke-width="2"
-           stroke-linejoin="round"
-           xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
-           font-family="'Open Sans Condensed'"
-           font-size="16px"
-           letter-spacing="0.06em"><tspan
-             x="568.93103"
-             y="395.207"
-             id="tspan114"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">789</tspan></text>
-      </g>
+      ${
+        !this.plants
+          ? ''
+          : svg`
+              <g
+                id="bars"
+                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+              >
+                <image id="bar-base" x="366" y="87" width="120" height="60"
+                fill="#ffffff" fill-opacity="0.9"
+                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+                href="${this.dataPath}/plants/base.png" /> <image
+                id="bar-readymix" x="623" y="135" width="120" height="60"
+                fill="#ffffff" fill-opacity="0.9"
+                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+                href="${this.dataPath}/plants/readymix.png" /> <image
+                id="bar-recycle" x="553" y="219" width="120" height="60"
+                fill="#ffffff" fill-opacity="0.9"
+                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+                href="${this.dataPath}/plants/recycle.png" /> <image id="bar-wash"
+                x="349" y="313" width="120" height="60" fill="#ffffff"
+                fill-opacity="0.9"
+                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+                href="${this.dataPath}/plants/wash.png" /> <image id="bar-main"
+                x="236" y="124" width="120" height="60" fill="#ffffff"
+                fill-opacity="0.9"
+                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+                href="${this.dataPath}/plants/main.png" /> <image
+                id="bar-oversize" x="201" y="209" width="120" height="60"
+                fill="#ffffff" fill-opacity="0.9"
+                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+                href="${this.dataPath}/plants/oversize.png" />
+              </g>
+            `
+      }
+      ${
+        !this.zones
+          ? ''
+          : svg`
+              <g
+                id="pies"
+                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+              >
+                <image id="pie-quarry" opacity="0.9" x="29.999901" y="155"
+                width="96" height="97.919998" fill="#ffffff"
+                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+                href="${this.dataPath}/zones/${this.zones.index}/quarry.png"
+                /> <image id="pie-base" opacity="0.9" x="690" y="219" width="96"
+                height="96" fill="#ffffff"
+                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+                href="${this.dataPath}/zones/${this.zones.index}/base.png" />
+                <image id="pie-readymix" opacity="0.9" x="550" y="19" width="96"
+                height="96" fill="#ffffff"
+                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+                href="${this.dataPath}/zones/${this.zones.index}/readymix.png"
+                /> <image id="pie-pickup" opacity="0.9" x="690" y="337"
+                width="96" height="96" fill="#ffffff"
+                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+                href="${this.dataPath}/zones/${this.zones.index}/pickup.png"
+                /> <image id="pie-primary" opacity="0.9" x="151" y="335"
+                width="96" height="96" fill="#ffffff"
+                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+                href="${this.dataPath}/zones/${this.zones.index}/primary.png"
+                /> <image id="pie-unknown" opacity="0.9" x="29.999901" y="335"
+                width="96" height="96" fill="#ffffff"
+                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+                href="${this.dataPath}/zones/${this.zones.index}/unknown.png"
+                />
+              </g>
+            `
+      }
+      ${
+        !this.trips
+          ? ''
+          : svg`
+              <g
+                id="trips"
+                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+              >
+                <text
+                  id="trip-primary-quarry"
+                  fill="#ffffff"
+                  stroke="#3e3e3e"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                  xml:space="preserve"
+                  style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers; text-anchor: middle"
+                  font-family="'Open Sans Condensed'"
+                  font-size="16px"
+                  letter-spacing="0.06em"
+                  ><tspan
+                    x="320.26401"
+                    y="326.207"
+                    id="tspan96"
+                    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers; text-anchor: middle"
+                    >${this.trips['primary-quarry'] ?? 0}</tspan
+                  ></text
+                >
+                <text
+                  id="trip-quarry-recycle"
+                  fill="#ffffff"
+                  stroke="#3e3e3e"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                  xml:space="preserve"
+                  style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers; text-anchor: middle"
+                  font-family="'Open Sans Condensed'"
+                  font-size="16px"
+                  letter-spacing="0.06em"
+                  ><tspan
+                    x="443.04199"
+                    y="244.207"
+                    id="tspan99"
+                    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers; text-anchor: middle"
+                    >${this.trips['quarry-recycle'] ?? 0}</tspan
+                  ></text
+                >
+                <text
+                  id="trip-quarry-readymix"
+                  fill="#ffffff"
+                  stroke="#3e3e3e"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                  xml:space="preserve"
+                  style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers; text-anchor: middle"
+                  font-family="'Open Sans Condensed'"
+                  font-size="16px"
+                  letter-spacing="0.06em"
+                  ><tspan
+                    x="516.70801"
+                    y="190.207"
+                    id="tspan102"
+                    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers; text-anchor: middle"
+                    >${this.trips['quarry-readymix'] ?? 0}</tspan
+                  ></text
+                >
+                <text
+                  id="trip-readymix-recycle"
+                  fill="#ffffff"
+                  stroke="#3e3e3e"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                  xml:space="preserve"
+                  style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers; text-anchor: middle"
+                  font-family="'Open Sans Condensed'"
+                  font-size="16px"
+                  letter-spacing="0.06em"
+                  ><tspan
+                    x="590.375"
+                    y="163.207"
+                    id="tspan105"
+                    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers; text-anchor: middle"
+                    >${this.trips['readymix-recycle'] ?? 0}</tspan
+                  ></text
+                >
+                <text
+                  id="trip-pickup-recycle"
+                  fill="#ffffff"
+                  stroke="#3e3e3e"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                  xml:space="preserve"
+                  style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers; text-anchor: middle"
+                  font-family="'Open Sans Condensed'"
+                  font-size="16px"
+                  letter-spacing="0.06em"
+                  ><tspan
+                    x="620.59698"
+                    y="342.207"
+                    id="tspan108"
+                    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers; text-anchor: middle"
+                    >${this.trips['pickup-recycle'] ?? 0}</tspan
+                  ></text
+                >
+                <text
+                  id="trip-primary-recycle"
+                  fill="#ffffff"
+                  stroke="#3e3e3e"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                  xml:space="preserve"
+                  style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers; text-anchor: middle"
+                  font-family="'Open Sans Condensed'"
+                  font-size="16px"
+                  letter-spacing="0.06em"
+                  ><tspan
+                    x="563.93103"
+                    y="341.87399"
+                    id="tspan111"
+                    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers; text-anchor: middle"
+                    >${this.trips['primary-recycle'] ?? 0}</tspan
+                  ></text
+                >
+                <text
+                  id="trip-pickup-primary"
+                  fill="#ffffff"
+                  stroke="#3e3e3e"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                  xml:space="preserve"
+                  style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers; text-anchor: middle"
+                  font-family="'Open Sans Condensed'"
+                  font-size="16px"
+                  letter-spacing="0.06em"
+                  ><tspan
+                    x="580.93103"
+                    y="395.207"
+                    id="tspan114"
+                    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers; text-anchor: middle"
+                    >${this.trips['pickup-primary'] ?? 0}</tspan
+                  ></text
+                >
+              </g>
+            `
+      }
     </g>
   </g>
 </svg>

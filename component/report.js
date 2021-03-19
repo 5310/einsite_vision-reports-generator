@@ -3,13 +3,29 @@ import { LitElement, html, css } from 'https://cdn.skypack.dev/lit-element'
 export default class VisionReport extends LitElement {
   static get properties() {
     return {
-      datasetPath: { type: String, attribute: 'dataset-path' },
+      dataPath: { type: String, attribute: 'data-path' },
+      data: { type: Object, attribute: false },
+      reportName: { type: String, attribute: false },
     }
   }
 
   constructor() {
     super()
-    this.datasetPath = '/data/template/index.json'
+    this.dataPath = '/data/template'
+    this.data = undefined
+    this.reportName = 'Loader Comparison · Daily'
+    this.fetchData()
+  }
+
+  async fetchData() {
+    this.data = await fetch(`${this.dataPath}/index.json`)
+      .then((response) => response.json())
+      .then((json) => ({
+        ...json,
+        equipment: json.equipment.map((equip, index) => ({ ...equip, index })),
+        path: this.dataPath.split('/').slice(0, -1).join('/'),
+      }))
+    await this.requestUpdate()
   }
 
   static get styles() {
@@ -40,13 +56,32 @@ export default class VisionReport extends LitElement {
   }
 
   render() {
-    return html`
-      <vision-report-page blank></vision-report-page>
-      <vision-report-page-activity page-no="1"></vision-report-page-activity>
-      <vision-report-page-activity page-no="2"></vision-report-page-activity>
-      <vision-report-page-activity page-no="3"></vision-report-page-activity>
-      <vision-report-page page-no="4"></vision-report-page>
-    `
+    return this.data
+      ? html`
+          <vision-report-page
+            blank
+            .reportName=${this.reportName}
+          ></vision-report-page>
+
+          ${this.data.equipment.map((equip, index) => {
+            return html`
+              <vision-report-page-activity
+                .pageNo=${1 + 1 + index}
+                .dataPath=${this.dataPath}
+                .equipment=${equip}
+                .trips=${this.data.trips[index]}
+                .date=${this.data.date}
+                .reportName=${this.reportName}
+              ></vision-report-page-activity>
+            `
+          })}
+
+          <vision-report-page
+            .pageNo=${1 + 1 + this.data.equipment.length}
+            .reportName=${this.reportName}
+          ></vision-report-page>
+        `
+      : html``
   }
 }
 

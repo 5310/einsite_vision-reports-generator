@@ -3,7 +3,9 @@ import { LitElement, html, css } from 'https://cdn.skypack.dev/lit-element'
 export default class VisionReportPageActivity extends LitElement {
   static get properties() {
     return {
+      dataPath: { type: String, attribute: 'data-path' },
       equipment: { type: Object },
+      trips: { type: Object },
       reportName: { type: String, attribute: 'report-name' },
       date: { type: Object },
       pageNo: { type: Number, attribute: 'page-no' },
@@ -12,14 +14,8 @@ export default class VisionReportPageActivity extends LitElement {
 
   constructor() {
     super()
-    this.equipment = {
-      index: 0,
-      id: 'CRL 15 - 988K',
-      type: 'Front Loader',
-    }
     this.reportName = 'Report Template'
     this.date = 'Weekday, Mon D, Year'
-    this.pageTitle = `Activity Map – ${this.equipment.id}`
     this.pageNo = '#'
   }
 
@@ -76,7 +72,12 @@ export default class VisionReportPageActivity extends LitElement {
         .pageTitle=${`Activity Map – ${this.equipment.id}`}
         .pageNo=${this.pageNo}
       >
-        <vision-report-map class="map"></vision-report-map>
+        <vision-report-map
+          class="map"
+          .dataPath=${this.dataPath}
+          .zones=${this.equipment}
+          .trips=${this.trips}
+        ></vision-report-map>
         <aside class="legend"></aside>
       </vision-report-page>
     `
