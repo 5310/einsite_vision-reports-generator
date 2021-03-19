@@ -50,15 +50,8 @@ export default class VisionPage extends LitElement {
         font-size: 14pt;
       }
 
-      h1 {
-        font-size: 18pt;
-        font-weight: 700;
-        text-transform: uppercase;
-      }
-      h2 {
-        font-size: 14pt;
-        font-weight: 700;
-        text-transform: uppercase;
+      ::slotted(*) {
+        grid-area: 3 / 2 / -2 / -2;
       }
 
       :host > :is(header, footer) {
