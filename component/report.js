@@ -3,28 +3,28 @@ import { LitElement, html, css } from 'https://cdn.skypack.dev/lit-element'
 export default class VisionReport extends LitElement {
   static get properties() {
     return {
-      dataPath: { type: String, attribute: 'data-path' },
+      path: { type: String, attribute: 'data-path' },
       data: { type: Object, attribute: false },
-      reportName: { type: String, attribute: false },
     }
   }
 
   constructor() {
     super()
-    this.dataPath = '/data/template'
+    this.path = '/data/template'
     this.data = undefined
-    this.reportName = 'Loader Comparison · Daily'
     this.fetchData()
   }
 
   async fetchData() {
-    this.data = await fetch(`${this.dataPath}/index.json`)
+    this.data = await fetch(`${this.path}/index.json`)
       .then((response) => response.json())
       .then((json) => ({
         ...json,
         equipment: json.equipment.map((equip, index) => ({ ...equip, index })),
-        path: this.dataPath.split('/').slice(0, -1).join('/'),
+        path: this.path,
+        name: 'Loader Comparison · Daily',
       }))
+    console.log(this.data)
     await this.requestUpdate()
   }
 
@@ -67,11 +67,9 @@ export default class VisionReport extends LitElement {
             return html`
               <vision-report-page-activity
                 .pageNo=${1 + 1 + index}
-                .dataPath=${this.dataPath}
+                .data=${this.data}
                 .equipment=${equip}
                 .trips=${this.data.trips[index]}
-                .date=${this.data.date}
-                .reportName=${this.reportName}
               ></vision-report-page-activity>
             `
           })}
