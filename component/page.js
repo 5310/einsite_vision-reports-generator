@@ -3,6 +3,7 @@ import { LitElement, html, css } from 'https://cdn.skypack.dev/lit-element'
 export default class VisionPage extends LitElement {
   static get properties() {
     return {
+      blank: { type: Boolean },
       reportName: { type: String, attribute: 'report-name' },
       date: { type: Object },
       pageTitle: { type: String, attribute: 'page-title' },
@@ -51,17 +52,19 @@ export default class VisionPage extends LitElement {
       }
 
       ::slotted(*) {
-        grid-area: 3 / 2 / -2 / -2;
+        grid-row-start: 3;
+        grid-column: 2 / -2;
       }
 
-      :host > :is(header, footer) {
-        display: contents;
+      :host > header {
+        grid-area: 1 / 2 / 3 / -2;
+        display: flex;
+        flex-flow: column;
+        grid-gap: var(--grid-gap);
+        justify-content: flex-end;
       }
 
       :host > header > .title {
-        grid-area: 1 / 2 / 2 / -2;
-        align-self: end;
-
         font-size: 24pt;
         font-weight: 700;
         text-transform: uppercase;
@@ -71,8 +74,6 @@ export default class VisionPage extends LitElement {
         opacity: 0.66;
       }
       :host > header > .date {
-        grid-area: 2 / 2 / 3 / -2;
-
         font-size: 14pt;
         font-weight: 500;
         line-height: 0.75em;
@@ -81,6 +82,7 @@ export default class VisionPage extends LitElement {
       }
 
       :host > footer {
+        display: contents;
         font-size: 12pt;
       }
       :host > footer > * {
@@ -112,17 +114,21 @@ export default class VisionPage extends LitElement {
 
   render() {
     return html`
-      <header>
-        <h1 class="title">${this.pageTitle}</h1>
-        <h2 class="date">${this.date}</h2>
-      </header>
+      ${this.blank
+        ? ''
+        : html`<header>
+            <h1 class="title">${this.pageTitle}</h1>
+            <h2 class="date">${this.date}</h2>
+          </header>`}
       <slot></slot>
-      <footer>
-        <div class="logo"></div>
-        <div class="title">${this.reportName}</div>
-        <div class="date">${this.date}</div>
-        <div class="page-no">${this.pageNo}</div>
-      </footer>
+      ${this.blank
+        ? ''
+        : html`<footer>
+            <div class="logo"></div>
+            <div class="title">${this.reportName}</div>
+            <div class="date">${this.date}</div>
+            <div class="page-no">${this.pageNo}</div>
+          </footer>`}
     `
   }
 }
