@@ -41,8 +41,8 @@ export default class VisionPage extends LitElement {
         display: grid;
         grid-auto-flow: column;
         grid-gap: var(--grid-gap);
-        grid-template-rows: repeat(var(--grid-rows), 1fr);
-        grid-template-columns: repeat(var(--grid-columns), 1fr);
+        grid-template-rows: repeat(auto-fill, var(--grid-cell-height));
+        grid-template-columns: repeat(auto-fill, var(--grid-cell-width));
 
         background: #fff;
 
