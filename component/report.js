@@ -20,6 +20,7 @@ export default class VisionReport extends LitElement {
       .then((response) => response.json())
       .then((json) => ({
         ...json,
+        date: new Date(json.date),
         equipment: json.equipment.map((equip, index) => ({ ...equip, index })),
         path: this.path,
         name: 'Loader Comparison · Daily',
@@ -60,9 +61,8 @@ export default class VisionReport extends LitElement {
       ? html`
           <vision-report-page
             blank
+            .data=${this.data}
             .pageNo="0"
-            .date=${this.data.date}
-            .reportName=${this.data.name}
           ></vision-report-page>
 
           ${this.data.equipment.map((equip, index) => {
@@ -77,9 +77,8 @@ export default class VisionReport extends LitElement {
           })}
 
           <vision-report-page
+            .data=${this.data}
             .pageNo=${1 + 1 + this.data.equipment.length}
-            .date=${this.data.date}
-            .reportName=${this.data.name}
           ></vision-report-page>
         `
       : html``

@@ -63,8 +63,7 @@ export default class VisionReportPageActivity extends LitElement {
   render() {
     return html`
       <vision-report-page
-        .reportName=${this.data.name}
-        .date=${this.data.date}
+        .data=${this.data}
         .pageTitle=${`Activity Map – ${this.equipment.id}`}
         .pageNo=${this.pageNo}
       >
