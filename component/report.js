@@ -59,19 +59,14 @@ export default class VisionReport extends LitElement {
   render() {
     return this.data
       ? html`
-          <vision-report-page
-            blank
-            .data=${this.data}
-            .pageNo="0"
-          ></vision-report-page>
+          <vision-report-page blank .data=${this.data}></vision-report-page>
 
-          ${this.data.pages.flatMap((page, i) => {
+          ${this.data.pages.flatMap((page) => {
             switch (page.type) {
               case 'zones':
                 return page.equipment.map(
-                  (equipmentIndex, j) => html`
+                  (equipmentIndex) => html`
                     <vision-report-page-zones
-                      .pageNo=${1 + 1 + i + j}
                       .data=${this.data}
                       .equipment=${this.data.equipment[equipmentIndex]}
                       .trips=${page.trips[equipmentIndex]}
@@ -81,9 +76,8 @@ export default class VisionReport extends LitElement {
               case 'plants':
                 return html`
                   <vision-report-page-plants
-                    .pageNo=${100 + i}
                     .data=${this.data}
-                    .title=${page.title}
+                    .subtitle=${page.subtitle}
                     .equipment=${page.equipment.map(
                       (equipmentIndex) => this.data.equipment[equipmentIndex],
                     )}
@@ -95,6 +89,12 @@ export default class VisionReport extends LitElement {
           })}
         `
       : html``
+  }
+
+  updated(changedProperties) {
+    Array.from(this.shadowRoot.children).forEach((page, index) => {
+      page.pageNo = 1 + index
+    })
   }
 }
 
