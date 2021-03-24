@@ -41,12 +41,12 @@
     },
     {
       "type": "plants",
-      "title": "Loaders",
+      "subtitle": "Loaders",
       "equipment": [0, 1, 2]
     },
     {
       "type": "plants",
-      "title": "Haultruck",
+      "subtitle": "Haultruck",
       "equipment": [3]
     }
   ]

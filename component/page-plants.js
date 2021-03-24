@@ -6,6 +6,7 @@ export default class VisionReportPagePlants extends LitElement {
   static get properties() {
     return {
       data: { type: Object },
+      subtitle: { type: String },
       equipment: { type: Array },
       pageNo: { type: Number, attribute: 'page-no' },
     }
@@ -72,7 +73,7 @@ export default class VisionReportPagePlants extends LitElement {
     return html`
       <vision-report-page
         .data=${this.data}
-        .pageTitle=${'Plants'}
+        .pageTitle="Plants · ${this.subtitle}"
         .pageNo=${this.pageNo}
       >
         <vision-report-map
