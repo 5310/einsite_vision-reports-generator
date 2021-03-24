@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'https://cdn.skypack.dev/lit-element'
 
-export default class VisionReportPageActivity extends LitElement {
+export default class VisionReportPageZones extends LitElement {
   static get properties() {
     return {
       data: { type: Object },
@@ -118,4 +118,4 @@ export default class VisionReportPageActivity extends LitElement {
   }
 }
 
-customElements.define('vision-report-page-activity', VisionReportPageActivity)
+customElements.define('vision-report-page-zones', VisionReportPageZones)

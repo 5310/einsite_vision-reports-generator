@@ -67,12 +67,12 @@ export default class VisionReport extends LitElement {
 
           ${this.data.equipment.map((equip, index) => {
             return html`
-              <vision-report-page-activity
+              <vision-report-page-zones
                 .pageNo=${1 + 1 + index}
                 .data=${this.data}
                 .equipment=${equip}
                 .trips=${this.data.trips[index]}
-              ></vision-report-page-activity>
+              ></vision-report-page-zones>
             `
           })}
 
