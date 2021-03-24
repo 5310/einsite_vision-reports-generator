@@ -495,27 +495,27 @@ export default class VisionReportMap extends LitElement {
                 <image id="bar-base" x="366" y="87" width="120" height="60"
                 fill="#ffffff" fill-opacity="0.9"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.data.path}/plants/base.png" /> <image
+                href="${this.data.path}/plants/${this.plants}/base.png" /> <image
                 id="bar-readymix" x="623" y="135" width="120" height="60"
                 fill="#ffffff" fill-opacity="0.9"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.data.path}/plants/readymix.png" /> <image
+                href="${this.data.path}/plants/${this.plants}/readymix.png" /> <image
                 id="bar-recycle" x="553" y="219" width="120" height="60"
                 fill="#ffffff" fill-opacity="0.9"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.data.path}/plants/recycle.png" /> <image id="bar-wash"
+                href="${this.data.path}/plants/${this.plants}/recycle.png" /> <image id="bar-wash"
                 x="349" y="313" width="120" height="60" fill="#ffffff"
                 fill-opacity="0.9"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.data.path}/plants/wash.png" /> <image id="bar-main"
+                href="${this.data.path}/plants/${this.plants}/wash.png" /> <image id="bar-main"
                 x="236" y="124" width="120" height="60" fill="#ffffff"
                 fill-opacity="0.9"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.data.path}/plants/main.png" /> <image
+                href="${this.data.path}/plants/${this.plants}/main.png" /> <image
                 id="bar-oversize" x="201" y="209" width="120" height="60"
                 fill="#ffffff" fill-opacity="0.9"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.data.path}/plants/oversize.png" />
+                href="${this.data.path}/plants/${this.plants}/oversize.png" />
               </g>
             `
       }

@@ -80,7 +80,7 @@ export default class VisionReportPagePlants extends LitElement {
           class="map"
           .data=${this.data}
           .dataPath=${this.data.path}
-          .plants="true"
+          .plants=${this.name}
         ></vision-report-map>
 
         <aside class="legend">

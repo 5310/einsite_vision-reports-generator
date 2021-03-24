@@ -77,6 +77,7 @@ export default class VisionReport extends LitElement {
                 return html`
                   <vision-report-page-plants
                     .data=${this.data}
+                    .name=${page.name}
                     .subtitle=${page.subtitle}
                     .equipment=${page.equipment.map(
                       (equipmentIndex) => this.data.equipment[equipmentIndex],
