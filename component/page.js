@@ -5,14 +5,14 @@ export default class VisionReportPage extends LitElement {
     return {
       blank: { type: Boolean },
       data: { type: Object },
-      pageTitle: { type: String, attribute: 'page-title' },
+      title: { type: String, attribute: 'page-title' },
       pageNo: { type: Number, attribute: 'page-no' },
     }
   }
 
   constructor() {
     super()
-    this.pageTitle = 'Title'
+    this.title = 'Title'
     this.pageNo = '#'
   }
 
@@ -114,7 +114,7 @@ export default class VisionReportPage extends LitElement {
       ${this.blank
         ? ''
         : html`<header>
-            <h1 class="title">${this.pageTitle}</h1>
+            <h1 class="title">${this.title}</h1>
             <h2 class="date">
               ${this.data.date
                 .toLocaleString('en-US', {
