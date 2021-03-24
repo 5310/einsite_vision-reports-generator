@@ -6,7 +6,7 @@ export default class VisionLegendHeatmap extends LitElement {
       title: { type: String },
       min: { type: String },
       max: { type: String },
-      background: { type: String },
+      swatch: { type: String },
     }
   }
 
@@ -84,7 +84,7 @@ export default class VisionLegendHeatmap extends LitElement {
       <div class="title">
         <slot></slot>
       </div>
-      <div class="viz" style="background-image: url(${this.background})"></div>
+      <div class="viz" style="background-image: url(${this.swatch})"></div>
       <span class="label min">${this.min}</span>
       <span class="label max">${this.max}</span>
     `

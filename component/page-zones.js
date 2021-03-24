@@ -95,11 +95,11 @@ export default class VisionReportPageZones extends LitElement {
             Hours spent <br /><strong>idle</strong> <br />within zone
           </vision-legend-pie>
 
-          <vision-legend-heatmap background="/asset/legend/oceanic.medium.png">
+          <vision-legend-heatmap swatch="/asset/legend/oceanic.medium.png">
             Time spent <strong>active</strong> <br />through the day
           </vision-legend-heatmap>
 
-          <vision-legend-heatmap background="/asset/legend/flame.png">
+          <vision-legend-heatmap swatch="/asset/legend/flame.png">
             Time spent <strong>idle</strong> <br />through the day
           </vision-legend-heatmap>
         </aside>
