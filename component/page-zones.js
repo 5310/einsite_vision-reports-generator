@@ -32,16 +32,6 @@ export default class VisionReportPageZones extends LitElement {
         --grid-cell-width: 49px;
         --grid-cell-height: 61px;
 
-        --color-purple: #a749f0;
-        --color-red: #ee2864;
-        --color-orangered: #ee6870;
-        --color-orange: #f08f49;
-        --color-yellow: #ffb800;
-        --color-green: #62dd77;
-        --color-cyan: #25c9c9;
-        --color-blue: #4a90e2;
-        --color-purpleblue: #625fe4;
-
         display: contents;
 
         font-family: 'Open Sans', sans-serif;
