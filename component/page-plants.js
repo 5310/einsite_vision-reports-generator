@@ -1,11 +1,12 @@
 import { LitElement, html, css } from 'https://cdn.skypack.dev/lit-element'
 
-export default class VisionReportPageZones extends LitElement {
+const palette = ['cyan', 'blue', 'purpleblue', 'purple']
+
+export default class VisionReportPagePlants extends LitElement {
   static get properties() {
     return {
       data: { type: Object },
-      equipment: { type: Object },
-      trips: { type: Object },
+      equipment: { type: Array },
       pageNo: { type: Number, attribute: 'page-no' },
     }
   }
@@ -71,41 +72,28 @@ export default class VisionReportPageZones extends LitElement {
     return html`
       <vision-report-page
         .data=${this.data}
-        .pageTitle=${`Zones · ${this.equipment.id}`}
+        .pageTitle=${'Plants'}
         .pageNo=${this.pageNo}
       >
         <vision-report-map
           class="map"
           .data=${this.data}
           .dataPath=${this.data.path}
-          .zones=${this.equipment}
-          .trips=${this.trips}
+          .plants="true"
         ></vision-report-map>
 
         <aside class="legend">
-          <vision-legend-connector>
-            No. of <strong>trips</strong>
-          </vision-legend-connector>
-
-          <vision-legend-pie color="#62dd77">
-            Hours spent <br /><strong>active</strong> <br />within zone
-          </vision-legend-pie>
-
-          <vision-legend-pie color="#ee2864">
-            Hours spent <br /><strong>idle</strong> <br />within zone
-          </vision-legend-pie>
-
-          <vision-legend-heatmap swatch="/asset/legend/oceanic.medium.png">
-            Time spent <strong>active</strong> <br />through the day
-          </vision-legend-heatmap>
-
-          <vision-legend-heatmap swatch="/asset/legend/flame.png">
-            Time spent <strong>idle</strong> <br />through the day
-          </vision-legend-heatmap>
+          ${this.equipment.map((equipment, index) => {
+            return html`
+              <vision-legend-box swatch="/asset/legend/${palette[index]}.png">
+                CY loaded by <br /><strong>${equipment.id}</strong>
+              </vision-legend-box>
+            `
+          })}
         </aside>
       </vision-report-page>
     `
   }
 }
 
-customElements.define('vision-report-page-zones', VisionReportPageZones)
+customElements.define('vision-report-page-plants', VisionReportPagePlants)

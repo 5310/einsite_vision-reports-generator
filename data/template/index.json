@@ -14,20 +14,40 @@
     {
       "id": "CRL 13 - 988H",
       "type": "Front Loader"
-    }
-  ],
-  "trips": [
-    {},
-    {
-      "base-readymix": 5,
-      "primary-quarry": 99,
-      "quarry-readymix": 20
     },
     {
-      "base-readymix": 6,
-      "base-quarry": 42,
-      "primary-quarry": 100,
-      "quarry-readymix": 30
+      "id": "CRT 107 -  A60H",
+      "type": "Haultruck"
+    }
+  ],
+  "pages": [
+    {
+      "type": "zones",
+      "equipment": [0, 1, 2],
+      "trips": [
+        {},
+        {
+          "base-readymix": 5,
+          "primary-quarry": 99,
+          "quarry-readymix": 20
+        },
+        {
+          "base-readymix": 6,
+          "base-quarry": 42,
+          "primary-quarry": 100,
+          "quarry-readymix": 30
+        }
+      ]
+    },
+    {
+      "type": "plants",
+      "title": "Loaders",
+      "equipment": [0, 1, 2]
+    },
+    {
+      "type": "plants",
+      "title": "Haultruck",
+      "equipment": [3]
     }
   ]
 }

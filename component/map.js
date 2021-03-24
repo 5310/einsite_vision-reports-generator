@@ -44,15 +44,20 @@ export default class VisionReportMap extends LitElement {
        href="/asset/map/${this.data.project}/${
       this.data.site
     }/base.faded.jpg" />
-    <image
-       id="map-viz"
-       width="816"
-       height="493"
-       fill="#ffffff"
-       fill-opacity="0.01"
-       x="0"
-       y="0"
-       href="${this.data.path}/heatmaps/${this.zones.index}.png" />
+    ${
+      !this.zones
+        ? ''
+        : svg`<image
+            id="map-viz"
+            width="816"
+            height="493"
+            fill="#ffffff"
+            fill-opacity="0.01"
+            x="0"
+            y="0"
+            href="${this.data.path}/heatmaps/${this.zones.index}.png"
+          />`
+    }
     <rect
        id="shade"
        x="-193"
@@ -61,7 +66,10 @@ export default class VisionReportMap extends LitElement {
        height="1930"
        fill="#000000"
        fill-opacity="0.1" />
-    <g
+    ${
+      !this.zones
+        ? ''
+        : svg`<g
        id="zones"
        style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none">
       <g
@@ -280,7 +288,9 @@ export default class VisionReportMap extends LitElement {
              id="tspan43"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">Quarry Zone</tspan></text>
       </g>
-    </g>
+    </g>`
+    }
+    
     <g
        id="plants"
        style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none">

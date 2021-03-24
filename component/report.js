@@ -65,21 +65,34 @@ export default class VisionReport extends LitElement {
             .pageNo="0"
           ></vision-report-page>
 
-          ${this.data.equipment.map((equip, index) => {
-            return html`
-              <vision-report-page-zones
-                .pageNo=${1 + 1 + index}
-                .data=${this.data}
-                .equipment=${equip}
-                .trips=${this.data.trips[index]}
-              ></vision-report-page-zones>
-            `
+          ${this.data.pages.flatMap((page, i) => {
+            switch (page.type) {
+              case 'zones':
+                return page.equipment.map(
+                  (equipmentIndex, j) => html`
+                    <vision-report-page-zones
+                      .pageNo=${1 + 1 + i + j}
+                      .data=${this.data}
+                      .equipment=${this.data.equipment[equipmentIndex]}
+                      .trips=${page.trips[equipmentIndex]}
+                    ></vision-report-page-zones>
+                  `,
+                )
+              case 'plants':
+                return html`
+                  <vision-report-page-plants
+                    .pageNo=${100 + i}
+                    .data=${this.data}
+                    .title=${page.title}
+                    .equipment=${page.equipment.map(
+                      (equipmentIndex) => this.data.equipment[equipmentIndex],
+                    )}
+                  ></vision-report-page-plants>
+                `
+              default:
+                return ''
+            }
           })}
-
-          <vision-report-page
-            .data=${this.data}
-            .pageNo=${1 + 1 + this.data.equipment.length}
-          ></vision-report-page>
         `
       : html``
   }
