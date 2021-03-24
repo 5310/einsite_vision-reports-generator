@@ -43,6 +43,7 @@ export default class VisionLegendConnector extends LitElement {
       }
       :host > .title {
         padding: 0 1ch;
+        margin-bottom: -0.75em;
 
         text-align: center;
       }
