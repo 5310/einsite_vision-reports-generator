@@ -66,7 +66,7 @@ export default class VisionReportPageCover extends LitElement {
         line-height: 0.75em;
       }
       header > .date {
-        font-size: 14pt;
+        font-size: 18pt;
         font-weight: 500;
         line-height: 0.75em;
       }
@@ -99,6 +99,10 @@ export default class VisionReportPageCover extends LitElement {
         font-size: 14pt;
         font-weight: 500;
         line-height: 0.75em;
+      }
+
+      footer {
+        grid-area: -4 / -4 / -2 / -2;
       }
     `
   }
@@ -140,6 +144,13 @@ export default class VisionReportPageCover extends LitElement {
             </section>`,
           )}
         </main>
+        <footer>
+          <object
+            class="logo"
+            type="image/svg+xml"
+            data="/asset/logo/logo.white.svg"
+          ></object>
+        </footer>
       </vision-report-page>
     `
   }
