@@ -88,10 +88,12 @@ export default class VisionReportPage extends LitElement {
         grid-row: -2 / -1;
       }
       :host > footer > .logo {
-        grid-column: 1 / 2;
+        grid-column: 2 / 3;
+        width: 100%;
+        margin-top: -20%;
       }
       :host > footer > .title {
-        grid-column: 2 / 10;
+        grid-column: 3 / 10;
 
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -131,7 +133,12 @@ export default class VisionReportPage extends LitElement {
       ${this.blank
         ? ''
         : html`<footer>
-            <div class="logo"></div>
+            <object
+              class="logo"
+              type="image/svg+xml"
+              data="/asset/logo/logomark.teal.svg"
+            ></object>
+            </div>
             <div class="title">${this.footer}</div>
             <div class="date">
               ${this.date
