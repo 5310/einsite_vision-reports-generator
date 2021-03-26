@@ -23,7 +23,6 @@ export default class VisionReport extends LitElement {
         date: new Date(json.date),
         equipment: json.equipment.map((equip, index) => ({ ...equip, index })),
         path: this.path,
-        name: 'Loader Comparison · Daily',
       }))
     console.log(this.data)
     await this.requestUpdate()
@@ -67,7 +66,11 @@ export default class VisionReport extends LitElement {
                 return page.equipment.map(
                   (equipmentIndex) => html`
                     <vision-report-page-zones
-                      .data=${this.data}
+                      .path=${this.data.path}
+                      .project=${this.data.project}
+                      .site=${this.data.site}
+                      .name=${page.name}
+                      .type=${page.type}
                       .equipment=${this.data.equipment[equipmentIndex]}
                       .trips=${page.trips[equipmentIndex]}
                     ></vision-report-page-zones>
@@ -76,8 +79,11 @@ export default class VisionReport extends LitElement {
               case 'plants':
                 return html`
                   <vision-report-page-plants
-                    .data=${this.data}
+                    .path=${this.data.path}
+                    .project=${this.data.project}
+                    .site=${this.data.site}
                     .name=${page.name}
+                    .type=${page.type}
                     .subtitle=${page.subtitle}
                     .equipment=${page.equipment.map(
                       (equipmentIndex) => this.data.equipment[equipmentIndex],
@@ -94,7 +100,9 @@ export default class VisionReport extends LitElement {
 
   updated(changedProperties) {
     Array.from(this.shadowRoot.children).forEach((page, index) => {
-      page.pageNo = 1 + index
+      page.number = 1 + index
+      page.footer = this.data.name
+      page.date = this.data.date
     })
   }
 }

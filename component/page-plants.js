@@ -5,16 +5,21 @@ const palette = ['cyan', 'blue', 'purpleblue', 'purple']
 export default class VisionReportPagePlants extends LitElement {
   static get properties() {
     return {
-      data: { type: Object },
+      date: { type: Object },
+      footer: { type: String },
+      number: { type: Number },
+      path: { type: String },
+      project: { type: String },
+      site: { type: String },
+      name: { type: String },
+      type: { type: String },
       subtitle: { type: String },
       equipment: { type: Array },
-      pageNo: { type: Number, attribute: 'page-no' },
     }
   }
 
   constructor() {
     super()
-    this.pageNo = '#'
   }
 
   static get styles() {
@@ -72,15 +77,18 @@ export default class VisionReportPagePlants extends LitElement {
   render() {
     return html`
       <vision-report-page
-        .data=${this.data}
         .title="Plants · ${this.subtitle}"
-        .pageNo=${this.pageNo}
+        .number=${this.number}
+        .footer=${this.footer}
+        .data=${this.date}
       >
         <vision-report-map
           class="map"
-          .data=${this.data}
-          .dataPath=${this.data.path}
-          .plants=${this.name}
+          .path=${this.path}
+          .project=${this.project}
+          .site=${this.site}
+          .name=${this.name}
+          plants
         ></vision-report-map>
 
         <aside class="legend">

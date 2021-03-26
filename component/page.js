@@ -4,16 +4,18 @@ export default class VisionReportPage extends LitElement {
   static get properties() {
     return {
       blank: { type: Boolean },
-      data: { type: Object },
-      title: { type: String, attribute: 'page-title' },
-      pageNo: { type: Number, attribute: 'page-no' },
+      title: { type: String },
+      date: { type: Object },
+      footer: { type: String },
+      number: { type: Number },
     }
   }
 
   constructor() {
     super()
     this.title = 'Title'
-    this.pageNo = '#'
+    this.number = '#'
+    this.date = new Date()
   }
 
   static get styles() {
@@ -110,13 +112,14 @@ export default class VisionReportPage extends LitElement {
   }
 
   render() {
+    console.log(this.date)
     return html`
       ${this.blank
         ? ''
         : html`<header>
             <h1 class="title">${this.title}</h1>
             <h2 class="date">
-              ${this.data.date
+              ${this.date
                 .toLocaleString('en-US', {
                   dateStyle: 'full',
                   timeStyle: 'short',
@@ -130,9 +133,9 @@ export default class VisionReportPage extends LitElement {
         ? ''
         : html`<footer>
             <div class="logo"></div>
-            <div class="title">${this.data.name}</div>
+            <div class="title">${this.footer}</div>
             <div class="date">
-              ${this.data.date
+              ${this.date
                 .toLocaleString('en-US', {
                   dateStyle: 'full',
                   timeStyle: 'short',
@@ -143,7 +146,7 @@ export default class VisionReportPage extends LitElement {
                 .join(',')
                 .trim()}
             </div>
-            <div class="page-no">${this.pageNo}</div>
+            <div class="page-no">${this.number}</div>
           </footer>`}
     `
   }

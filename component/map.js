@@ -3,9 +3,12 @@ import { LitElement, svg } from 'https://cdn.skypack.dev/lit-element'
 export default class VisionReportMap extends LitElement {
   static get properties() {
     return {
-      data: { type: Object },
+      path: { type: String },
+      project: { type: String },
+      site: { type: String },
+      name: { type: String },
       plants: { type: Boolean },
-      zones: { type: Object },
+      zones: { type: Array },
       trips: { type: Array },
     }
   }
@@ -41,9 +44,7 @@ export default class VisionReportMap extends LitElement {
        height="1930"
        fill="#ffffff"
        fill-opacity="0.01"
-       href="/asset/map/${this.data.project}/${
-      this.data.site
-    }/base.faded.jpg" />
+       href="/asset/map/${this.project}/${this.site}/base.faded.jpg" />
     ${
       !this.zones
         ? ''
@@ -55,7 +56,7 @@ export default class VisionReportMap extends LitElement {
             fill-opacity="0.01"
             x="0"
             y="0"
-            href="${this.data.path}/heatmaps/${this.zones.index}.png"
+            href="${this.path}/heatmaps/${this.zones.index}.png"
           />`
     }
     <rect
@@ -495,27 +496,27 @@ export default class VisionReportMap extends LitElement {
                 <image id="bar-base" x="366" y="87" width="120" height="60"
                 fill="#ffffff" fill-opacity="0.9"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.data.path}/plants/${this.plants}/base.png" /> <image
+                href="${this.path}/plants/${this.name}/base.png" /> <image
                 id="bar-readymix" x="623" y="135" width="120" height="60"
                 fill="#ffffff" fill-opacity="0.9"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.data.path}/plants/${this.plants}/readymix.png" /> <image
+                href="${this.path}/plants/${this.name}/readymix.png" /> <image
                 id="bar-recycle" x="553" y="219" width="120" height="60"
                 fill="#ffffff" fill-opacity="0.9"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.data.path}/plants/${this.plants}/recycle.png" /> <image id="bar-wash"
+                href="${this.path}/plants/${this.name}/recycle.png" /> <image id="bar-wash"
                 x="349" y="313" width="120" height="60" fill="#ffffff"
                 fill-opacity="0.9"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.data.path}/plants/${this.plants}/wash.png" /> <image id="bar-main"
+                href="${this.path}/plants/${this.name}/wash.png" /> <image id="bar-main"
                 x="236" y="124" width="120" height="60" fill="#ffffff"
                 fill-opacity="0.9"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.data.path}/plants/${this.plants}/main.png" /> <image
+                href="${this.path}/plants/${this.name}/main.png" /> <image
                 id="bar-oversize" x="201" y="209" width="120" height="60"
                 fill="#ffffff" fill-opacity="0.9"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.data.path}/plants/${this.plants}/oversize.png" />
+                href="${this.path}/plants/${this.name}/oversize.png" />
               </g>
             `
       }
@@ -530,27 +531,27 @@ export default class VisionReportMap extends LitElement {
                 <image id="pie-quarry" opacity="0.9" x="29.999901" y="155"
                 width="96" height="97.919998" fill="#ffffff"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.data.path}/zones/${this.zones.index}/quarry.png"
+                href="${this.path}/zones/${this.zones.index}/quarry.png"
                 /> <image id="pie-base" opacity="0.9" x="690" y="219" width="96"
                 height="96" fill="#ffffff"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.data.path}/zones/${this.zones.index}/base.png" />
+                href="${this.path}/zones/${this.zones.index}/base.png" />
                 <image id="pie-readymix" opacity="0.9" x="550" y="19" width="96"
                 height="96" fill="#ffffff"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.data.path}/zones/${this.zones.index}/readymix.png"
+                href="${this.path}/zones/${this.zones.index}/readymix.png"
                 /> <image id="pie-pickup" opacity="0.9" x="690" y="337"
                 width="96" height="96" fill="#ffffff"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.data.path}/zones/${this.zones.index}/pickup.png"
+                href="${this.path}/zones/${this.zones.index}/pickup.png"
                 /> <image id="pie-primary" opacity="0.9" x="151" y="335"
                 width="96" height="96" fill="#ffffff"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.data.path}/zones/${this.zones.index}/primary.png"
+                href="${this.path}/zones/${this.zones.index}/primary.png"
                 /> <image id="pie-unknown" opacity="0.9" x="29.999901" y="335"
                 width="96" height="96" fill="#ffffff"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.data.path}/zones/${this.zones.index}/unknown.png"
+                href="${this.path}/zones/${this.zones.index}/unknown.png"
                 />
               </g>
             `
