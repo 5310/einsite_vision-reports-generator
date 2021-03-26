@@ -531,27 +531,27 @@ export default class VisionReportMap extends LitElement {
                 <image id="pie-quarry" opacity="0.9" x="29.999901" y="155"
                 width="96" height="97.919998" fill="#ffffff"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.path}/zones/${this.zones.index}/quarry.png"
+                href="${this.path}/zones/${this.name}/${this.zones.index}/quarry.png"
                 /> <image id="pie-base" opacity="0.9" x="690" y="219" width="96"
                 height="96" fill="#ffffff"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.path}/zones/${this.zones.index}/base.png" />
+                href="${this.path}/zones/${this.name}/${this.zones.index}/base.png" />
                 <image id="pie-readymix" opacity="0.9" x="550" y="19" width="96"
                 height="96" fill="#ffffff"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.path}/zones/${this.zones.index}/readymix.png"
+                href="${this.path}/zones/${this.name}/${this.zones.index}/readymix.png"
                 /> <image id="pie-pickup" opacity="0.9" x="690" y="337"
                 width="96" height="96" fill="#ffffff"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.path}/zones/${this.zones.index}/pickup.png"
+                href="${this.path}/zones/${this.name}/${this.zones.index}/pickup.png"
                 /> <image id="pie-primary" opacity="0.9" x="151" y="335"
                 width="96" height="96" fill="#ffffff"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.path}/zones/${this.zones.index}/primary.png"
+                href="${this.path}/zones/${this.name}/${this.zones.index}/primary.png"
                 /> <image id="pie-unknown" opacity="0.9" x="29.999901" y="335"
                 width="96" height="96" fill="#ffffff"
                 style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.path}/zones/${this.zones.index}/unknown.png"
+                href="${this.path}/zones/${this.name}/${this.zones.index}/unknown.png"
                 />
               </g>
             `
