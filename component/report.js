@@ -1,16 +1,10 @@
 import { LitElement, html, css } from 'https://cdn.skypack.dev/lit-element'
 
 export default class VisionReport extends LitElement {
-  static get properties() {
-    return {
-      path: { type: String, attribute: 'data-path' },
-      data: { type: Object, attribute: false },
-    }
-  }
-
   constructor() {
     super()
-    this.path = '/data/template'
+    this.path =
+      new URLSearchParams(location.search).get('path') ?? '/data/template'
     this.data = undefined
     this.fetchData()
   }
@@ -24,6 +18,7 @@ export default class VisionReport extends LitElement {
         equipment: json.equipment.map((equip, index) => ({ ...equip, index })),
         path: this.path,
       }))
+      .catch((err) => console.error(`Failed to load data from ${this.path}`))
     await this.requestUpdate()
   }
 
