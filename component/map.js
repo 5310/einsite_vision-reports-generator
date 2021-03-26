@@ -10,6 +10,7 @@ export default class VisionReportMap extends LitElement {
       plants: { type: Boolean },
       zones: { type: Array },
       trips: { type: Array },
+      cover: { type: Boolean },
     }
   }
 
@@ -29,7 +30,7 @@ export default class VisionReportMap extends LitElement {
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   viewBox="0 0 816 487"
+   viewBox=${this.cover ? '0 -426 816 1056' : '0 0 816 487'}
    preserveAspectRatio="xMidYMid meet"
    fill="none"
    version="1.1">
@@ -44,7 +45,9 @@ export default class VisionReportMap extends LitElement {
        height="1930"
        fill="#ffffff"
        fill-opacity="0.01"
-       href="/asset/map/${this.project}/${this.site}/base.faded.jpg" />
+       href="/asset/map/${this.project}/${this.site}/base.${
+      this.cover ? 'full-color' : 'faded'
+    }.jpg" />
     ${
       !this.zones
         ? ''
@@ -347,7 +350,10 @@ export default class VisionReportMap extends LitElement {
            stroke-linejoin="round"
            style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
       </g>
-      <g
+      ${
+        this.cover
+          ? ''
+          : svg`<g
          id="fence-connectors"
          style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none">
         <path
@@ -480,7 +486,8 @@ export default class VisionReportMap extends LitElement {
              y="286.09601"
              id="tspan77"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">Oversize Plant</tspan></text>
-      </g>
+      </g>`
+      }
     </g>
     <g
        id="graphs"

@@ -112,7 +112,6 @@ export default class VisionReportPage extends LitElement {
   }
 
   render() {
-    console.log(this.date)
     return html`
       ${this.blank
         ? ''

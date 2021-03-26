@@ -24,7 +24,6 @@ export default class VisionReport extends LitElement {
         equipment: json.equipment.map((equip, index) => ({ ...equip, index })),
         path: this.path,
       }))
-    console.log(this.data)
     await this.requestUpdate()
   }
 
@@ -58,7 +57,14 @@ export default class VisionReport extends LitElement {
   render() {
     return this.data
       ? html`
-          <vision-report-page blank .data=${this.data}></vision-report-page>
+          <vision-report-page-cover
+            blank
+            .path=${this.data.path}
+            .project=${this.data.project}
+            .site=${this.data.site}
+            .title=${this.data.name}
+            .equipment=${this.data.equipment}
+          ></vision-report-page-cover>
 
           ${this.data.pages.flatMap((page) => {
             switch (page.type) {
