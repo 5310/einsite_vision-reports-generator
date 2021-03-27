@@ -80,7 +80,7 @@ export default class VisionReportPagePlants extends LitElement {
         .title="Plants · ${this.subtitle}"
         .number=${this.number}
         .footer=${this.footer}
-        .data=${this.date}
+        .date=${this.date}
       >
         <vision-report-map
           class="map"

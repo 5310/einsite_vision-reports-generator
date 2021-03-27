@@ -78,7 +78,7 @@ export default class VisionReportPageZones extends LitElement {
         .title=${`Zones · ${this.equipment.id}`}
         .number=${this.number}
         .footer=${this.footer}
-        .data=${this.date}
+        .date=${this.date}
       >
         <vision-report-map
           class="map"

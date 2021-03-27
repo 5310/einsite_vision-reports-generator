@@ -15,6 +15,7 @@ export default class VisionReportPageCover extends LitElement {
 
   constructor() {
     super()
+    this.date = new Date()
   }
 
   static get styles() {
