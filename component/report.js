@@ -50,53 +50,58 @@ export default class VisionReport extends LitElement {
   }
 
   render() {
-    return this.data
-      ? html`
-          <vision-report-page-cover
-            blank
-            .path=${this.data.path}
-            .project=${this.data.project}
-            .site=${this.data.site}
-            .title=${this.data.name}
-            .equipment=${this.data.equipment}
-          ></vision-report-page-cover>
+    if (this.data) {
+      document.title = `${this.data.project} · ${
+        this.data.site
+      } — ${this.data.date.toISOString().slice(0, 10)}`
+      return html`
+        <vision-report-page-cover
+          blank
+          .path=${this.data.path}
+          .project=${this.data.project}
+          .site=${this.data.site}
+          .title=${this.data.name}
+          .equipment=${this.data.equipment}
+        ></vision-report-page-cover>
 
-          ${this.data.pages.flatMap((page) => {
-            switch (page.type) {
-              case 'zones':
-                return page.equipment.map(
-                  (equipmentIndex) => html`
-                    <vision-report-page-zones
-                      .path=${this.data.path}
-                      .project=${this.data.project}
-                      .site=${this.data.site}
-                      .name=${page.name}
-                      .type=${page.type}
-                      .equipment=${this.data.equipment[equipmentIndex]}
-                      .trips=${page.trips[equipmentIndex]}
-                    ></vision-report-page-zones>
-                  `,
-                )
-              case 'plants':
-                return html`
-                  <vision-report-page-plants
+        ${this.data.pages.flatMap((page) => {
+          switch (page.type) {
+            case 'zones':
+              return page.equipment.map(
+                (equipmentIndex) => html`
+                  <vision-report-page-zones
                     .path=${this.data.path}
                     .project=${this.data.project}
                     .site=${this.data.site}
                     .name=${page.name}
                     .type=${page.type}
-                    .subtitle=${page.subtitle}
-                    .equipment=${page.equipment.map(
-                      (equipmentIndex) => this.data.equipment[equipmentIndex],
-                    )}
-                  ></vision-report-page-plants>
-                `
-              default:
-                return ''
-            }
-          })}
-        `
-      : html``
+                    .equipment=${this.data.equipment[equipmentIndex]}
+                    .trips=${page.trips[equipmentIndex]}
+                  ></vision-report-page-zones>
+                `,
+              )
+            case 'plants':
+              return html`
+                <vision-report-page-plants
+                  .path=${this.data.path}
+                  .project=${this.data.project}
+                  .site=${this.data.site}
+                  .name=${page.name}
+                  .type=${page.type}
+                  .subtitle=${page.subtitle}
+                  .equipment=${page.equipment.map(
+                    (equipmentIndex) => this.data.equipment[equipmentIndex],
+                  )}
+                ></vision-report-page-plants>
+              `
+            default:
+              return ''
+          }
+        })}
+      `
+    } else {
+      return ''
+    }
   }
 
   updated(changedProperties) {
