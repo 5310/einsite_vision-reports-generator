@@ -125,7 +125,7 @@ export default class VisionReportPage extends LitElement {
                   dateStyle: 'full',
                   timeStyle: 'short',
                 })
-                .split('at')[0]
+                .split(' at ')[0]
                 .trim()}
             </h2>
           </header>`}
@@ -146,7 +146,7 @@ export default class VisionReportPage extends LitElement {
                   dateStyle: 'full',
                   timeStyle: 'short',
                 })
-                .split('at')[0]
+                .split(' at ')[0]
                 .split(',')
                 .slice(1)
                 .join(',')

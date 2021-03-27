@@ -131,7 +131,7 @@ export default class VisionReportPageCover extends LitElement {
                 dateStyle: 'full',
                 timeStyle: 'short',
               })
-              .split('at')[0]
+              .split(' at ')[0]
               .trim()}
           </h2>
         </header>
