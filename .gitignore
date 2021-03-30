@@ -1,5 +1,7 @@
 scratch/
 .fuse*
+*.pdf
+*.tar.gz
 
 # Logs
 logs
