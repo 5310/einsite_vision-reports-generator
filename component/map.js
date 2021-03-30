@@ -53,12 +53,12 @@ export default class VisionReportMap extends LitElement {
         ? ''
         : svg`<image
             id="map-viz"
-            width="816"
-            height="493"
+            x="-193"
+            y="-143.75301"
+            width="1320"
+            height="742.5"
             fill="#ffffff"
             fill-opacity="0.01"
-            x="0"
-            y="0"
             href="${this.path}/heatmaps/${this.zones.index}.png"
           />`
     }
@@ -104,36 +104,36 @@ export default class VisionReportMap extends LitElement {
          style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none">
         <path
            id="primary"
-           d="m 195,439.194 h 104.37 l 33.074,-43.472"
-           stroke="#3e3e3e"
+           d="M195 439.194L299.37 439.194L332.444 395.722"
+           stroke="#3E3E3E"
            stroke-width="2"
            stroke-linecap="round"
            style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
         <path
            id="base"
-           d="M 748.5,323.945 H 646.944"
-           stroke="#3e3e3e"
+           d="M646.945 323.945L678.061 346.001H716.271"
+           stroke="#3E3E3E"
            stroke-width="2"
            stroke-linecap="round"
            style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
         <path
            id="readymix"
-           d="m 553,141 v -17 h 85.5"
-           stroke="#3e3e3e"
+           d="M553 141L553 118"
+           stroke="#3E3E3E"
            stroke-width="2"
            stroke-linecap="round"
            style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
         <path
            id="pickup"
-           d="m 610,405 40.722,36.944 H 758.5"
-           stroke="#3e3e3e"
+           d="M610 405L677.121 462.971H703.934"
+           stroke="#3E3E3E"
            stroke-width="2"
            stroke-linecap="round"
            style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
         <path
            id="quarry"
-           d="M 76,262 H 179"
-           stroke="#3e3e3e"
+           d="M76 262L179 262"
+           stroke="#3E3E3E"
            stroke-width="2"
            stroke-linecap="round"
            style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
@@ -203,91 +203,96 @@ export default class VisionReportMap extends LitElement {
          style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none">
         <text
            id="zone-primary"
-           fill="#000000"
-           stroke="#ffffff"
+           fill="black"
+           stroke="white"
            stroke-width="2"
            stroke-linejoin="round"
-           xml:space="preserve"
+           xml:space="preserve"           
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
            font-family="'Open Sans Condensed'"
-           font-size="16px"
+           font-family="Open Sans Condensed"
+           font-size="16"
            letter-spacing="0.06em"><tspan
-             x="151.94701"
+             x="151.947"
              y="445.207"
              id="tspan28"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">Primary Zone</tspan></text>
         <text
            id="zone-unknown"
-           fill="#000000"
-           stroke="#ffffff"
+           fill="black"
+           stroke="white"
            stroke-width="2"
            stroke-linejoin="round"
-           xml:space="preserve"
+           xml:space="preserve"           
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
            font-family="'Open Sans Condensed'"
-           font-size="16px"
+           font-family="Open Sans Condensed"
+           font-size="16"
            letter-spacing="0.06em"><tspan
-             x="44.948101"
+             x="44.9481"
              y="445.207"
              id="tspan31"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">Unknown</tspan></text>
         <text
            id="zone-base"
-           fill="#000000"
-           stroke="#ffffff"
+           fill="black"
+           stroke="white"
            stroke-width="2"
            stroke-linejoin="round"
-           xml:space="preserve"
+           xml:space="preserve"           
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
            font-family="'Open Sans Condensed'"
-           font-size="16px"
+           font-family="Open Sans Condensed"
+           font-size="16"
            letter-spacing="0.06em"><tspan
-             x="702.60498"
-             y="329.207"
+             x="702.605"
+             y="350.1"
              id="tspan34"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">Base Zone</tspan></text>
         <text
            id="zone-pickup"
-           fill="#000000"
-           stroke="#ffffff"
+           fill="black"
+           stroke="white"
            stroke-width="2"
            stroke-linejoin="round"
-           xml:space="preserve"
+           xml:space="preserve"           
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
            font-family="'Open Sans Condensed'"
-           font-size="16px"
+           font-family="Open Sans Condensed"
+           font-size="16"
            letter-spacing="0.06em"><tspan
-             x="695.56702"
-             y="447.207"
+             x="695.567"
+             y="468.1"
              id="tspan37"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">Pickup Zone</tspan></text>
         <text
            id="zone-readymix"
-           fill="#000000"
-           stroke="#ffffff"
+           fill="black"
+           stroke="white"
            stroke-width="2"
            stroke-linejoin="round"
-           xml:space="preserve"
+           xml:space="preserve"           
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
            font-family="'Open Sans Condensed'"
-           font-size="16px"
+           font-family="Open Sans Condensed"
+           font-size="16"
            letter-spacing="0.06em"><tspan
-             x="542.04901"
-             y="128.207"
+             x="540.049"
+             y="121.207"
              id="tspan40"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">Ready Mix Zone</tspan></text>
         <text
            id="zone-quarry"
-           fill="#000000"
-           stroke="#ffffff"
+           fill="black"
+           stroke="white"
            stroke-width="2"
            stroke-linejoin="round"
            xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
-           font-family="'Open Sans Condensed'"
-           font-size="16px"
+           style="white-space: pre"
+           font-family="Open Sans Condensed"
+           font-size="16"
            letter-spacing="0.06em"><tspan
-             x="34.590599"
+             x="34.5906"
              y="267.207"
              id="tspan43"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">Quarry Zone</tspan></text>
@@ -298,104 +303,103 @@ export default class VisionReportMap extends LitElement {
     <g
        id="plants"
        style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none">
-      <g
-         id="fence-area"
-         style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none">
+      
+       <g
+         id="fence-area">
         <path
            id="base_2"
            d="m 498.251,219.798 -11.655,-3.521 -6.267,17.869 3.653,8.375 h 5.948 z"
            fill="#000000"
            stroke="#ffffff"
            stroke-width="2"
-           stroke-linejoin="round"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
+           stroke-linejoin="round" />
         <path
            id="readymix_2"
-           d="m 544.944,197.389 -16.055,0.944 -9.445,9.445 0.945,14.166 26.444,0.945 z"
+           d="m 533.933,225.127 v -6.862 l -1.802,-0.944 v -10.38 l -1.801,-1.887 h -1.973 l -5.233,-4.118 -6.005,2.573 -2.488,9.265 2.488,8.665 4.46,3.688 z"
            fill="#000000"
            stroke="#ffffff"
            stroke-width="2"
-           stroke-linejoin="round"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
+           stroke-linejoin="round" />
+        <path
+           id="newplant"
+           d="m 647.667,216.623 v -4.735 l 1.913,-3.341 v -8.795 l -1.253,-1.66 h -4.886 l -2.017,1.66 v 10.462 l 1.16,2.017 v 4.392 z"
+           fill="#000000"
+           stroke="#ffffff"
+           stroke-width="2"
+           stroke-linejoin="round" />
         <path
            id="main"
-           d="m 403.039,248.521 3.041,-9.547 11.601,4.667 -2.934,6.454 z"
+           d="m 392.675,245.381 4.999,-11.049 15.456,10.063 -1.052,4.472 z"
            fill="#000000"
            stroke="#ffffff"
            stroke-width="2"
-           stroke-linejoin="round"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
+           stroke-linejoin="round" />
         <path
            id="oversize"
            d="m 359.013,274.418 3.358,-13.339 21.959,5.173 -1.905,11.025 z"
            fill="#000000"
            stroke="#ffffff"
            stroke-width="2"
-           stroke-linejoin="round"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
+           stroke-linejoin="round" />
         <path
            id="wash"
            d="m 474.79,318.227 4.383,-15.837 5.704,0.671 8.418,6.261 -3.83,10.84 z"
            fill="#000000"
            stroke="#ffffff"
            stroke-width="2"
-           stroke-linejoin="round"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
+           stroke-linejoin="round" />
         <path
            id="recycle"
-           d="m 481.248,284.774 2.482,-15.42 20.001,1.356 -0.8,14.332 z"
+           d="m 485.873,285.042 -0.658,-11.116 3.946,-4.867 h 5.131 l 8.639,4.867 1.029,2.762 -0.592,7.893 z"
            fill="#000000"
            stroke="#ffffff"
            stroke-width="2"
-           stroke-linejoin="round"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
+           stroke-linejoin="round" />
       </g>
       ${
         this.cover
           ? ''
-          : svg`<g
-         id="fence-connectors"
-         style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none">
+          : svg`
+      <g
+         id="fence-connectors">
         <path
            id="main_2"
-           d="m 288,197 h 91.58 L 406,239"
+           d="m 288,197 h 91.58 l 25.723,42.33"
            stroke="#ffffff"
-           stroke-width="2"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
+           stroke-width="2" />
         <path
            id="wash_2"
            d="m 481.667,318.5 v 48.622 l -12.278,17 H 399"
            stroke="#ffffff"
-           stroke-width="2"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
+           stroke-width="2" />
         <path
            id="base_3"
            d="M 487.333,217.222 448.658,158.667 H 413.667"
            stroke="#ffffff"
-           stroke-width="2"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
+           stroke-width="2" />
         <path
            id="readymix_3"
-           d="M 713,205.833 H 545.889"
+           d="m 531.913,209.602 h 66.424 L 653,142 h 24.5"
            stroke="#ffffff"
-           stroke-width="2"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
+           stroke-width="2" />
         <path
            id="oversize_2"
            d="m 250,281 h 76.452 l 10.716,-14 H 361"
            stroke="#ffffff"
-           stroke-width="2"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
+           stroke-width="2" />
         <path
            id="recycle_2"
-           d="m 502,276 h 19.915 l 22.661,14 H 637.5"
+           d="m 503.744,280.356 h 8.151 l 23.3,14.601 h 33.478"
            stroke="#ffffff"
-           stroke-width="2"
-           style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
+           stroke-width="2" />
+        <path
+           id="newplant_2"
+           d="m 647.598,212.002 19.179,12.521 h 33.477"
+           stroke="#ffffff"
+           stroke-width="2" />
       </g>
       <g
-         id="fence-text"
-         style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none">
+         id="fence-text">
         <text
            id="fence-base"
            fill="#000000"
@@ -409,7 +413,7 @@ export default class VisionReportMap extends LitElement {
            letter-spacing="0.06em"><tspan
              x="389.10999"
              y="163.31799"
-             id="tspan62"
+             id="tspan64"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">Base Plant</tspan></text>
         <text
            id="fence-readymix"
@@ -422,10 +426,25 @@ export default class VisionReportMap extends LitElement {
            font-family="'Open Sans Condensed'"
            font-size="16px"
            letter-spacing="0.06em"><tspan
-             x="625.776"
-             y="211.31799"
-             id="tspan65"
+             x="668.776"
+             y="147.207"
+             id="tspan67"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">Ready Mix Plant</tspan></text>
+        <text
+           id="fence-newplant"
+           fill="#000000"
+           stroke="#ffffff"
+           stroke-width="2"
+           stroke-linejoin="round"
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
+           font-family="'Open Sans Condensed'"
+           font-size="16px"
+           letter-spacing="0.06em"><tspan
+             x="689.58197"
+             y="228.83"
+             id="tspan70"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">New Plant</tspan></text>
         <text
            id="fence-recycle"
            fill="#000000"
@@ -437,9 +456,9 @@ export default class VisionReportMap extends LitElement {
            font-family="'Open Sans Condensed'"
            font-size="16px"
            letter-spacing="0.06em"><tspan
-             x="566.34998"
-             y="295.10699"
-             id="tspan68"
+             x="551.83502"
+             y="300.08499"
+             id="tspan73"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">Recycle Plant</tspan></text>
         <text
            id="fence-wash"
@@ -454,7 +473,7 @@ export default class VisionReportMap extends LitElement {
            letter-spacing="0.06em"><tspan
              x="369.578"
              y="388.763"
-             id="tspan71"
+             id="tspan76"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">Wash Plant</tspan></text>
         <text
            id="fence-main"
@@ -469,7 +488,7 @@ export default class VisionReportMap extends LitElement {
            letter-spacing="0.06em"><tspan
              x="257.57101"
              y="201.09599"
-             id="tspan74"
+             id="tspan79"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">Main Plant</tspan></text>
         <text
            id="fence-oversize"
@@ -484,7 +503,7 @@ export default class VisionReportMap extends LitElement {
            letter-spacing="0.06em"><tspan
              x="210.47099"
              y="286.09601"
-             id="tspan77"
+             id="tspan82"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:16px;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">Oversize Plant</tspan></text>
       </g>`
       }
@@ -495,73 +514,146 @@ export default class VisionReportMap extends LitElement {
       ${
         !this.plants
           ? ''
-          : svg`
-              <g
-                id="bars"
-                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-              >
-                <image id="bar-base" x="366" y="87" width="120" height="60"
-                fill="#ffffff" fill-opacity="0.9"
-                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.path}/plants/${this.name}/base.png" /> <image
-                id="bar-readymix" x="623" y="135" width="120" height="60"
-                fill="#ffffff" fill-opacity="0.9"
-                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.path}/plants/${this.name}/readymix.png" /> <image
-                id="bar-recycle" x="553" y="219" width="120" height="60"
-                fill="#ffffff" fill-opacity="0.9"
-                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.path}/plants/${this.name}/recycle.png" /> <image id="bar-wash"
-                x="349" y="313" width="120" height="60" fill="#ffffff"
-                fill-opacity="0.9"
-                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.path}/plants/${this.name}/wash.png" /> <image id="bar-main"
-                x="236" y="124" width="120" height="60" fill="#ffffff"
-                fill-opacity="0.9"
-                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.path}/plants/${this.name}/main.png" /> <image
-                id="bar-oversize" x="201" y="209" width="120" height="60"
-                fill="#ffffff" fill-opacity="0.9"
-                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.path}/plants/${this.name}/oversize.png" />
-              </g>
-            `
+          : svg`<g
+            id="bars">
+            <image
+              id="bar-base"
+              x="366"
+              y="87"
+              width="120"
+              height="60"
+              fill="#ffffff"
+              style="stroke-width:2;stroke-miterlimit:4;troke-dasharray:none"
+              fill-opacity="0.9"
+              href="${this.path}/plants/${this.name}/base.png" />
+            <image
+              id="bar-readymix"
+              x="666"
+              y="70.888901"
+              width="120"
+              height="60"
+              fill="#ffffff"
+              style="stroke-width:2;stroke-miterlimit:4;troke-dasharray:none"
+              fill-opacity="0.9"
+              href="${this.path}/plants/${this.name}/readymix.png" />
+            <image
+              id="bar-newplant"
+              x="666"
+              y="156.623"
+              width="120"
+              height="60"
+              fill="#ffffff"
+              style="stroke-width:2;stroke-miterlimit:4;troke-dasharray:none"
+              fill-opacity="0.9"
+              href="${this.path}/plants/${this.name}/newplant.png" />
+            <image
+              id="bar-recycle"
+              x="538.48499"
+              y="223.978"
+              width="120"
+              height="60"
+              fill="#ffffff"
+              style="stroke-width:2;stroke-miterlimit:4;troke-dasharray:none"
+              fill-opacity="0.9"
+              href="${this.path}/plants/${this.name}/recycle.png" />
+            <image
+              id="bar-wash"
+              x="349"
+              y="313"
+              width="120"
+              height="60"
+              fill="#ffffff"
+              style="stroke-width:2;stroke-miterlimit:4;troke-dasharray:none"
+              fill-opacity="0.9"
+              href="${this.path}/plants/${this.name}/wash.png" />
+            <image
+              id="bar-main"
+              x="236"
+              y="124"
+              width="120"
+              height="60"
+              fill="#ffffff"
+              style="stroke-width:2;stroke-miterlimit:4;troke-dasharray:none"
+              fill-opacity="0.9"
+              href="${this.path}/plants/${this.name}/main.png" />
+            <image
+              id="bar-oversize"
+              x="201"
+              y="209"
+              width="120"
+              height="60"
+              fill="#ffffff"
+              style="stroke-width:2;stroke-miterlimit:4;troke-dasharray:none"
+              fill-opacity="0.9"
+              href="${this.path}/plants/${this.name}/oversize.png" />
+          </g>`
       }
       ${
         !this.zones
           ? ''
-          : svg`
-              <g
-                id="pies"
-                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-              >
-                <image id="pie-quarry" opacity="0.9" x="29.999901" y="155"
-                width="96" height="97.919998" fill="#ffffff"
-                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.path}/zones/${this.name}/${this.zones.index}/quarry.png"
-                /> <image id="pie-base" opacity="0.9" x="690" y="219" width="96"
-                height="96" fill="#ffffff"
-                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+          : svg`<g
+              id="pies">
+              <image
+                id="pie-quarry"
+                opacity="0.9"
+                x="29.999901"
+                y="155"
+                width="96"
+                height="97.919998"
+                fill="#ffffff"
+                style="stroke-width:2;stroke-miterlimit:4;troke-dasharray:none"
+                href="${this.path}/zones/${this.name}/${this.zones.index}/quarry.png" />
+              <image
+                id="pie-base"
+                opacity="0.9"
+                x="690"
+                y="239.89301"
+                width="96"
+                height="96"
+                fill="#ffffff"
+                style="stroke-width:2;stroke-miterlimit:4;troke-dasharray:none"
                 href="${this.path}/zones/${this.name}/${this.zones.index}/base.png" />
-                <image id="pie-readymix" opacity="0.9" x="550" y="19" width="96"
-                height="96" fill="#ffffff"
-                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.path}/zones/${this.name}/${this.zones.index}/readymix.png"
-                /> <image id="pie-pickup" opacity="0.9" x="690" y="337"
-                width="96" height="96" fill="#ffffff"
-                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.path}/zones/${this.name}/${this.zones.index}/pickup.png"
-                /> <image id="pie-primary" opacity="0.9" x="151" y="335"
-                width="96" height="96" fill="#ffffff"
-                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.path}/zones/${this.name}/${this.zones.index}/primary.png"
-                /> <image id="pie-unknown" opacity="0.9" x="29.999901" y="335"
-                width="96" height="96" fill="#ffffff"
-                style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
-                href="${this.path}/zones/${this.name}/${this.zones.index}/unknown.png"
-                />
-              </g>
-            `
+              <image
+                id="pie-readymix"
+                opacity="0.9"
+                x="548"
+                y="11"
+                width="96"
+                height="96"
+                fill="#ffffff"
+                style="stroke-width:2;stroke-miterlimit:4;troke-dasharray:none"
+                href="${this.path}/zones/${this.name}/${this.zones.index}/readymix.png" />
+              <image
+                id="pie-pickup"
+                opacity="0.9"
+                x="690"
+                y="357.89301"
+                width="96"
+                height="96"
+                fill="#ffffff"
+                style="stroke-width:2;stroke-miterlimit:4;troke-dasharray:none"
+                href="${this.path}/zones/${this.name}/${this.zones.index}/pickup.png" />
+              <image
+                id="pie-primary"
+                opacity="0.9"
+                x="151"
+                y="335"
+                width="96"
+                height="96"
+                fill="#ffffff"
+                style="stroke-width:2;stroke-miterlimit:4;troke-dasharray:none"
+                href="${this.path}/zones/${this.name}/${this.zones.index}/primary.png" />
+              <image
+                id="pie-unknown"
+                opacity="0.9"
+                x="29.999901"
+                y="335"
+                width="96"
+                height="96"
+                fill="#ffffff"
+                style="stroke-width:2;stroke-miterlimit:4;troke-dasharray:none"
+                href="${this.path}/zones/${this.name}/${this.zones.index}/unknown.png" />
+            </g>`
       }
       ${
         !this.trips
