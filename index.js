@@ -5,6 +5,7 @@ const puppeteer = require('puppeteer')
 const sleep = require('sleep-promise')
 
 const PORT = 5000
+const PATH = process.argv[2] ?? '/data/template'
 const RENDER_DELAY = 2
 
 const server = http.createServer((req, res) => {
@@ -17,7 +18,7 @@ const server = http.createServer((req, res) => {
   const browser = await puppeteer.launch()
 
   const page = await browser.newPage()
-  await page.goto(`http://localhost:${PORT}`)
+  await page.goto(`http://localhost:${PORT}?path=${PATH}`)
   await sleep(RENDER_DELAY * 1000)
 
   await page.pdf({
