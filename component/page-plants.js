@@ -71,6 +71,27 @@ export default class VisionReportPagePlants extends LitElement {
         font-size: 12px;
         line-height: 1em;
       }
+
+      vision-report-page > .notes {
+        grid-area: auto / 2 / span 3 / -2;
+      }
+      vision-report-page > .notes > h1 {
+        margin-top: 1em;
+        margin-bottom: var(--grid-gap);
+        opacity: 0.8;
+      }
+      vision-report-page > .notes > ul {
+        display: grid;
+        grid-gap: var(--grid-gap);
+        grid-column-gap: calc(var(--grid-gap) * 2);
+        grid-template-columns: auto 1fr;
+      }
+      vision-report-page > .notes > ul > li {
+        display: contents;
+      }
+      vision-report-page > .notes > ul > li > dl {
+        font-weight: 700;
+      }
     `
   }
 
@@ -90,6 +111,18 @@ export default class VisionReportPagePlants extends LitElement {
           .name=${this.name}
           plants
         ></vision-report-map>
+
+        <div class="notes">
+          <h1>Bucket Capacity</h1>
+          <ul>
+            ${this.equipment.map(
+              (equip) => html`<li>
+                <dl>${equip.id}</dl>
+                <dd>${equip.capacity}</dd>
+              </li>`,
+            )}
+          </ul>
+        </div>
 
         <aside class="legend">
           ${this.equipment.map((equipment, index) => {

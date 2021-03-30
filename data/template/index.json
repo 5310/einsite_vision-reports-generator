@@ -6,19 +6,23 @@
   "equipment": [
     {
       "id": "CRL 15 - 988K",
-      "type": "Front Loader"
+      "type": "Front Loader",
+      "capacity": "11.25 CY / 8.6 m³"
     },
     {
       "id": "CRL 17 - 988K",
-      "type": "Front Loader"
+      "type": "Front Loader",
+      "capacity": "11.25 CY / 8.6 m³"
     },
     {
       "id": "CRL 13 - 988H",
-      "type": "Front Loader"
+      "type": "Front Loader",
+      "capacity": "10.36 CY / 7.4 m³"
     },
     {
       "id": "CRT 107 -  A60H",
-      "type": "Haultruck"
+      "type": "Haultruck",
+      "capacity": "44 CY / 33.6 m³"
     }
   ],
   "pages": [
