@@ -1,4 +1,7 @@
 import { LitElement, html, css } from 'https://cdn.skypack.dev/lit-element'
+import '/component/page.js'
+import '/component/map.js'
+import '/component/legend-box.js'
 
 const palette = ['cyan', 'blue', 'purpleblue', 'purple']
 

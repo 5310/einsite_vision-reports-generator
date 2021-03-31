@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'https://cdn.skypack.dev/lit-element'
+import '/component/page.js'
 
 export default class VisionReportPageCover extends LitElement {
   static get properties() {

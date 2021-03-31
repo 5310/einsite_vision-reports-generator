@@ -1,4 +1,9 @@
 import { LitElement, html, css } from 'https://cdn.skypack.dev/lit-element'
+import '/component/page.js'
+import '/component/map.js'
+import '/component/legend-connector.js'
+import '/component/legend-pie.js'
+import '/component/legend-heatmap.js'
 
 export default class VisionReportPageZones extends LitElement {
   static get properties() {

@@ -1,4 +1,7 @@
 import { LitElement, html, css } from 'https://cdn.skypack.dev/lit-element'
+import '/component/page-cover.js'
+import '/component/page-zones.js'
+import '/component/page-plants.js'
 
 export default class VisionReport extends LitElement {
   constructor() {
