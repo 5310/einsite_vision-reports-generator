@@ -15,17 +15,14 @@ In order to generate an implemented report, first populate its data under `/data
 1. In order to use the included Node.js based script that generates reports directly first open a terminal on the generator root
 2. Install the dependencies as a one-time step: `$ npm install`
 3. Run the script as needed: `$ npm start `/data/<project>/<site>/<target-data-folder>`
-
-- By convention the data folder with visualizations and the `index.json` files should be stored as per this example
-- But as long as it is stored anywhere under the root directory it can be read and generated
+   - By convention the data folder with visualizations and the `index.json` files should be stored as per this example
+   - But as long as it is stored anywhere under the root directory it can be read and generated
 
 ### Only Using the Static Web-based Generator
 
 1. Run a static fileserver on the project's root
-
-- The generator itself operates entirely on the browser and does not Node.js or any specific serverside software to work
-- However, it does need a static fileserver to be able to load its dependencies
-
+   - The generator itself operates entirely on the browser and does not Node.js or any specific serverside software to work
+   - However, it does need a static fileserver to be able to load its dependencies
 2. Open the page and point it to a data folder using the `path` URL parameter, e.g: `localhost:5000?path=/data/<project>/<site>/<target-data-folder>`
 3. Wait 5 seconds for the report to fully generate, and then print
 
