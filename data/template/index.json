@@ -7,53 +7,59 @@
     {
       "id": "CRL 15 - 988K",
       "type": "Front Loader",
-      "capacity": "11.25 CY / 8.6 m³"
+      "capacity": "11.25 CY / 8.6 m³",
+      "trips": {}
     },
     {
       "id": "CRL 17 - 988K",
       "type": "Front Loader",
-      "capacity": "11.25 CY / 8.6 m³"
+      "capacity": "11.25 CY / 8.6 m³",
+      "trips": {
+        "base-readymix": 5,
+        "primary-quarry": 99,
+        "quarry-readymix": 20
+      }
     },
     {
       "id": "CRL 13 - 988H",
       "type": "Front Loader",
-      "capacity": "10.36 CY / 7.4 m³"
+      "capacity": "10.36 CY / 7.4 m³",
+      "trips": {
+        "base-readymix": 6,
+        "base-quarry": 42,
+        "primary-quarry": 100,
+        "quarry-readymix": 30
+      }
     },
     {
       "id": "CRT 107 -  A60H",
       "type": "Haultruck",
-      "capacity": "44 CY / 33.6 m³"
+      "capacity": "44 CY / 33.6 m³",
+      "trips": {}
     }
   ],
   "pages": [
     {
       "type": "zones",
-      "name": "all",
-      "equipment": [0, 1, 2],
-      "trips": [
-        {},
-        {
-          "base-readymix": 5,
-          "primary-quarry": 99,
-          "quarry-readymix": 20
-        },
-        {
-          "base-readymix": 6,
-          "base-quarry": 42,
-          "primary-quarry": 100,
-          "quarry-readymix": 30
-        }
-      ]
+      "equipment": 0
+    },
+    {
+      "type": "zones",
+      "equipment": 1
+    },
+    {
+      "type": "zones",
+      "equipment": 2
     },
     {
       "type": "plants",
-      "name": "loader",
+      "id": "loader",
       "subtitle": "Loaders",
       "equipment": [0, 1, 2]
     },
     {
       "type": "plants",
-      "name": "haultruck",
+      "id": "haultruck",
       "subtitle": "Haul Truck",
       "equipment": [3]
     }
