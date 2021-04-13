@@ -4,13 +4,7 @@ import '/component/page.js'
 export default class VisionReportPageCover extends LitElement {
   static get properties() {
     return {
-      date: { type: Object },
-      footer: { type: String },
-      number: { type: Number },
-      path: { type: String },
-      project: { type: String },
-      site: { type: String },
-      equipment: { type: Array },
+      report: { type: Object },
     }
   }
 
@@ -114,19 +108,19 @@ export default class VisionReportPageCover extends LitElement {
       <vision-report-page
         blank
         title="${this.project} · ${this.site}"
+        .footer=${this.report.name}
+        .date=${this.report.date}
         .number=${this.number}
-        .footer=${this.footer}
-        .data=${this.date}
       >
         <vision-report-map
           class="map"
-          .path=${this.path}
-          .project=${this.project}
-          .site=${this.site}
+          .report=${this.report}
           cover
         ></vision-report-map>
         <header>
-          <h1 class="project-site">${this.project} · ${this.site}</h1>
+          <h1 class="project-site">
+            ${this.report.project} · ${this.report.site}
+          </h1>
           <h2 class="date">
             ${this.date
               .toLocaleString('en-US', {
@@ -139,7 +133,7 @@ export default class VisionReportPageCover extends LitElement {
         </header>
         <main>
           <h1 class="title">${this.title}</h1>
-          ${this.equipment.map(
+          ${this.report.equipment.map(
             (equip) => html`<section>
               <h1 class="equipment-id">${equip.id}</h1>
               <h2 class="equipment-type">${equip.type}</h2>

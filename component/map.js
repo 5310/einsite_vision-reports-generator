@@ -3,19 +3,20 @@ import { LitElement, svg } from 'https://cdn.skypack.dev/lit-element'
 export default class VisionReportMap extends LitElement {
   static get properties() {
     return {
-      path: { type: String },
-      project: { type: String },
-      site: { type: String },
-      name: { type: String },
+      report: { type: Object },
+      pageId: { type: String },
+      equipmentId: { type: Number },
       plants: { type: Boolean },
-      zones: { type: Array },
-      trips: { type: Array },
+      zones: { type: Boolean },
+      trips: { type: Boolean },
       cover: { type: Boolean },
     }
   }
 
   constructor() {
     super()
+    this.pageId = undefined
+    this.equipmentId = undefined
     this.plants = undefined
     this.zones = undefined
     this.trips = undefined
@@ -45,7 +46,7 @@ export default class VisionReportMap extends LitElement {
       height="1930"
       fill="#ffffff"
       fill-opacity="0.01"
-      href="/asset/map/${this.project}/${this.site}/base.${
+      href="/asset/map/${this.report.project}/${this.report.site}/base.${
       this.cover ? 'full-color' : 'faded'
     }.jpg" />
     ${
@@ -59,7 +60,7 @@ export default class VisionReportMap extends LitElement {
           height="742.5"
           fill="#ffffff"
           fill-opacity="0.01"
-          href="${this.path}/heatmaps/${this.zones.index}.png"
+          href="${this.report.path}/heatmap_${this.equipmentId}.png"
         />`
     }
     <rect
@@ -355,49 +356,49 @@ export default class VisionReportMap extends LitElement {
               y="87"
               width="120"
               height="60"
-              href="${this.path}/plants/${this.name}/base.png" />
+              href="${this.report.path}/bar_plants_${this.pageId}_base.png" />
             <image
               id="bar-readymix"
               x="666"
               y="70.888901"
               width="120"
               height="60"
-              href="${this.path}/plants/${this.name}/readymix.png" />
+              href="${this.report.path}/bar_plants_${this.pageId}_readymix.png" />
             <image
               id="bar-newplant"
               x="666"
               y="156.623"
               width="120"
               height="60"
-              href="${this.path}/plants/${this.name}/newplant.png" />
+              href="${this.report.path}/bar_plants_${this.pageId}_newplant.png" />
             <image
               id="bar-recycle"
               x="538.48499"
               y="223.978"
               width="120"
               height="60"
-              href="${this.path}/plants/${this.name}/recycle.png" />
+              href="${this.report.path}/bar_plants_${this.pageId}_recycle.png" />
             <image
               id="bar-wash"
               x="349"
               y="313"
               width="120"
               height="60"
-              href="${this.path}/plants/${this.name}/wash.png" />
+              href="${this.report.path}/bar_plants_${this.pageId}_wash.png" />
             <image
               id="bar-main"
               x="236"
               y="124"
               width="120"
               height="60"
-              href="${this.path}/plants/${this.name}/main.png" />
+              href="${this.report.path}/bar_plants_${this.pageId}_main.png" />
             <image
               id="bar-oversize"
               x="201"
               y="209"
               width="120"
               height="60"
-              href="${this.path}/plants/${this.name}/oversize.png" />
+              href="${this.report.path}/bar_plants_${this.pageId}_oversize.png" />
           </g>`
       }
       ${
@@ -413,42 +414,42 @@ export default class VisionReportMap extends LitElement {
               y="155"
               width="96"
               height="97.919998"
-              href="${this.path}/zones/${this.name}/${this.zones.index}/quarry.png" />
+              href="${this.report.path}/pie_zones_${this.equipmentId}_quarry.png" />
             <image
               id="pie-base"
               x="690"
               y="239.89301"
               width="96"
               height="96"
-              href="${this.path}/zones/${this.name}/${this.zones.index}/base.png" />
+              href="${this.report.path}/pie_zones_${this.equipmentId}_base.png" />
             <image
               id="pie-readymix"
               x="548"
               y="11"
               width="96"
               height="96"
-              href="${this.path}/zones/${this.name}/${this.zones.index}/readymix.png" />
+              href="${this.report.path}/pie_zones_${this.equipmentId}_readymix.png" />
             <image
               id="pie-pickup"
               x="690"
               y="357.89301"
               width="96"
               height="96"
-              href="${this.path}/zones/${this.name}/${this.zones.index}/pickup.png" />
+              href="${this.report.path}/pie_zones_${this.equipmentId}_pickup.png" />
             <image
               id="pie-primary"
               x="151"
               y="335"
               width="96"
               height="96"
-              href="${this.path}/zones/${this.name}/${this.zones.index}/primary.png" />
+              href="${this.report.path}/pie_zones_${this.equipmentId}_primary.png" />
             <image
               id="pie-unknown"
               x="29.999901"
               y="335"
               width="96"
               height="96"
-              href="${this.path}/zones/${this.name}/${this.zones.index}/unknown.png" />
+              href="${this.report.path}/pie_zones_${this.equipmentId}_unknown.png" />
           </g>`
       }
       ${
@@ -472,7 +473,11 @@ export default class VisionReportMap extends LitElement {
                   <tspan
                     x="320.26401"
                     y="326.207">
-                    ${this.trips['primary-quarry'] ?? 0}
+                    ${
+                      this.report.equipment[this.equipmentId].trips[
+                        'primary-quarry'
+                      ] ?? 0
+                    }
                   </tspan>
                 </text>
                 <text
@@ -480,7 +485,11 @@ export default class VisionReportMap extends LitElement {
                   <tspan
                     x="443.04199"
                     y="244.207">
-                    ${this.trips['quarry-recycle'] ?? 0}
+                    ${
+                      this.report.equipment[this.equipmentId].trips[
+                        'quarry-recycle'
+                      ] ?? 0
+                    }
                   </tspan>
                 </text>
                 <text
@@ -488,7 +497,11 @@ export default class VisionReportMap extends LitElement {
                   <tspan
                     x="516.70801"
                     y="190.207">
-                    ${this.trips['quarry-readymix'] ?? 0}
+                    ${
+                      this.report.equipment[this.equipmentId].trips[
+                        'quarry-readymix'
+                      ] ?? 0
+                    }
                   </tspan>
                 </text>
                 <text
@@ -496,7 +509,11 @@ export default class VisionReportMap extends LitElement {
                   <tspan
                     x="590.375"
                     y="163.207">
-                    ${this.trips['readymix-recycle'] ?? 0}
+                    ${
+                      this.report.equipment[this.equipmentId].trips[
+                        'readymix-recycle'
+                      ] ?? 0
+                    }
                   </tspan>
                 </text>
                 <text
@@ -504,7 +521,11 @@ export default class VisionReportMap extends LitElement {
                   <tspan
                     x="620.59698"
                     y="342.207">
-                    ${this.trips['pickup-recycle'] ?? 0}
+                    ${
+                      this.report.equipment[this.equipmentId].trips[
+                        'pickup-recycle'
+                      ] ?? 0
+                    }
                   </tspan>
                 </text>
                 <text
@@ -512,14 +533,22 @@ export default class VisionReportMap extends LitElement {
                   <tspan
                     x="563.93103"
                     y="341.87399">
-                    ${this.trips['primary-recycle'] ?? 0}
+                    ${
+                      this.report.equipment[this.equipmentId].trips[
+                        'primary-recycle'
+                      ] ?? 0
+                    }
                   </tspan></text>
                 <text
                   id="trip-pickup-primary">
                   <tspan
                     x="580.93103"
                     y="395.207">
-                    ${this.trips['pickup-primary'] ?? 0}
+                    ${
+                      this.report.equipment[this.equipmentId].trips[
+                        'pickup-primary'
+                      ] ?? 0
+                    }
                   </tspan>
                 </text>
               </g>

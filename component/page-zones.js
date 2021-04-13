@@ -8,16 +8,9 @@ import '/component/legend-heatmap.js'
 export default class VisionReportPageZones extends LitElement {
   static get properties() {
     return {
-      date: { type: Object },
-      footer: { type: String },
       number: { type: Number },
-      path: { type: String },
-      project: { type: String },
-      site: { type: String },
-      name: { type: String },
-      type: { type: String },
-      equipment: { type: Array },
-      trips: { type: Array },
+      report: { type: Object },
+      page: { type: Object },
     }
   }
 
@@ -80,19 +73,17 @@ export default class VisionReportPageZones extends LitElement {
   render() {
     return html`
       <vision-report-page
-        .title=${`Zones · ${this.equipment.id}`}
+        .title=${`Zones · ${this.report.equipment[this.page.equipment].id}`}
+        .footer=${this.report.name}
+        .date=${this.report.date}
         .number=${this.number}
-        .footer=${this.footer}
-        .date=${this.date}
       >
         <vision-report-map
           class="map"
-          .path=${this.path}
-          .project=${this.project}
-          .site=${this.site}
-          .name=${this.name}
-          .zones=${this.equipment}
-          .trips=${this.trips}
+          .report=${this.report}
+          .equipmentId=${this.page.equipment}
+          zones
+          trips
         ></vision-report-map>
 
         <aside class="legend">

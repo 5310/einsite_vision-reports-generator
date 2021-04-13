@@ -8,16 +8,9 @@ const palette = ['cyan', 'blue', 'purpleblue', 'purple']
 export default class VisionReportPagePlants extends LitElement {
   static get properties() {
     return {
-      date: { type: Object },
-      footer: { type: String },
       number: { type: Number },
-      path: { type: String },
-      project: { type: String },
-      site: { type: String },
-      name: { type: String },
-      type: { type: String },
-      subtitle: { type: String },
-      equipment: { type: Array },
+      report: { type: Object },
+      page: { type: Object },
     }
   }
 
@@ -101,37 +94,37 @@ export default class VisionReportPagePlants extends LitElement {
   render() {
     return html`
       <vision-report-page
-        .title="Plants · ${this.subtitle}"
+        .title="Plants · ${this.page.subtitle}"
+        .footer=${this.report.name}
+        .date=${this.report.date}
         .number=${this.number}
-        .footer=${this.footer}
-        .date=${this.date}
       >
         <vision-report-map
           class="map"
-          .path=${this.path}
-          .project=${this.project}
-          .site=${this.site}
-          .name=${this.name}
+          .report=${this.report}
+          .pageId=${this.page.id}
           plants
         ></vision-report-map>
 
         <div class="notes">
           <h1>Bucket Capacity</h1>
           <ul>
-            ${this.equipment.map(
-              (equip) => html`<li>
-                <dl>${equip.id}</dl>
-                <dd>${equip.capacity}</dd>
+            ${this.page.equipment.map(
+              (index) => html`<li>
+                <dl>${this.report.equipment[index].id}</dl>
+                <dd>${this.report.equipment[index].capacity}</dd>
               </li>`,
             )}
           </ul>
         </div>
 
         <aside class="legend">
-          ${this.equipment.map((equipment, index) => {
+          ${this.page.equipment.map((index) => {
             return html`
               <vision-legend-box swatch="/asset/legend/${palette[index]}.png">
-                CY loaded by <br /><strong>${equipment.id}</strong>
+                CY loaded by <br /><strong
+                  >${this.report.equipment[index].id}</strong
+                >
               </vision-legend-box>
             `
           })}

@@ -8,12 +8,12 @@ export default class VisionReport extends LitElement {
     super()
     this.path =
       new URLSearchParams(location.search).get('path') ?? '/data/template'
-    this.data = undefined
+    this.report = undefined
     this.fetchData()
   }
 
   async fetchData() {
-    this.data = await fetch(`${this.path}/index.json`)
+    this.report = await fetch(`${this.path}/index.json`)
       .then((response) => response.json())
       .then((json) => ({
         ...json,
@@ -53,48 +53,29 @@ export default class VisionReport extends LitElement {
   }
 
   render() {
-    if (this.data) {
-      document.title = `${this.data.project} · ${
-        this.data.site
-      } — ${this.data.date.toISOString().slice(0, 10)}`
+    if (this.report) {
+      document.title = `${this.report.project} · ${
+        this.report.site
+      } — ${this.report.date.toISOString().slice(0, 10)}`
       return html`
         <vision-report-page-cover
-          blank
-          .path=${this.data.path}
-          .project=${this.data.project}
-          .site=${this.data.site}
-          .title=${this.data.name}
-          .equipment=${this.data.equipment}
+          .report=${this.report}
         ></vision-report-page-cover>
 
-        ${this.data.pages.flatMap((page) => {
+        ${this.report.pages.map((page) => {
           switch (page.type) {
             case 'zones':
-              return page.equipment.map(
-                (equipmentIndex) => html`
-                  <vision-report-page-zones
-                    .path=${this.data.path}
-                    .project=${this.data.project}
-                    .site=${this.data.site}
-                    .name=${page.name}
-                    .type=${page.type}
-                    .equipment=${this.data.equipment[equipmentIndex]}
-                    .trips=${page.trips[equipmentIndex]}
-                  ></vision-report-page-zones>
-                `,
-              )
+              return html`
+                <vision-report-page-zones
+                  .report=${this.report}
+                  .page=${page}
+                ></vision-report-page-zones>
+              `
             case 'plants':
               return html`
                 <vision-report-page-plants
-                  .path=${this.data.path}
-                  .project=${this.data.project}
-                  .site=${this.data.site}
-                  .name=${page.name}
-                  .type=${page.type}
-                  .subtitle=${page.subtitle}
-                  .equipment=${page.equipment.map(
-                    (equipmentIndex) => this.data.equipment[equipmentIndex],
-                  )}
+                  .report=${this.report}
+                  .page=${page}
                 ></vision-report-page-plants>
               `
             default:
@@ -110,8 +91,6 @@ export default class VisionReport extends LitElement {
   updated(changedProperties) {
     Array.from(this.shadowRoot.children).forEach((page, index) => {
       page.number = 1 + index
-      page.footer = this.data.name
-      page.date = this.data.date
     })
   }
 }
