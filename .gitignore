@@ -2,6 +2,7 @@ scratch/
 .fuse*
 *.pdf
 *.tar.gz
+*.vm
 
 # Logs
 logs
