@@ -5,7 +5,9 @@
   "description": "A web-based reports generator for Einsite Vision",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js",
+    "start": "npm run print",
+    "print": "node ./print.js",
+    "dev": "npx serve .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,5 +18,11 @@
     "puppeteer": "^8.0.0",
     "send": "^0.17.1",
     "sleep-promise": "^9.1.0"
+  },
+  "devDependencies": {
+    "html-inline-script-webpack-plugin": "^2.0.0",
+    "html-webpack-plugin": "^5.3.1",
+    "webpack": "^5.27.2",
+    "webpack-cli": "^4.5.0"
   }
 }
