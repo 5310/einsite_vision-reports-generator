@@ -2,7 +2,7 @@
   "private": true,
   "type": "module",
   "name": "vision-reports-generator",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A web-based reports generator for Einsite Vision",
   "main": "index.js",
   "scripts": {
