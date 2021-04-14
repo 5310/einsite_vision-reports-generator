@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'https://esm.sh/lit-element'
+import { LitElement, html, css } from 'https://cdn.skypack.dev/lit-element'
 
 export default class VisionLegendConnector extends LitElement {
   static get properties() {
