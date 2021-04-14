@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'https://cdn.skypack.dev/lit-element'
+import { LitElement, html, css } from 'lit-element'
 
 export default class VisionReportMap extends LitElement {
   static get properties() {
@@ -26,7 +26,7 @@ export default class VisionReportMap extends LitElement {
   async importMap() {
     this.MapElement = (
       await import(
-        `/asset/map/${this.report.project}/${this.report.site}/map.js`
+        /* webpackMode: "eager" */ `/asset/map/${this.report.project}/${this.report.site}/map.js`
       )
     ).default
     try {

@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'https://cdn.skypack.dev/lit-element'
+import { LitElement, html, css } from 'lit-element'
 import '/component/page-cover.js'
 import '/component/page-zones.js'
 import '/component/page-plants.js'
@@ -13,15 +13,30 @@ export default class VisionReport extends LitElement {
   }
 
   async fetchData() {
-    this.report = await fetch(`${this.path}/index.json`)
-      .then((response) => response.json())
-      .then((json) => ({
-        ...json,
-        date: new Date(json.date),
-        equipment: json.equipment.map((equip, index) => ({ ...equip, index })),
-        path: this.path,
-      }))
-      .catch((err) => console.error(`Failed to load data from ${this.path}`))
+    try {
+      this.report = $jsonData
+    } catch (err) {
+      this.report = await fetch(`${this.path}/index.json`)
+        .then((response) => response.json())
+        .then((json) => ({
+          ...json,
+          date: new Date(json.date),
+          equipment: json.equipment.map((equip, index) => ({
+            ...equip,
+            index,
+          })),
+          path: this.path,
+        }))
+        .catch((err) => console.error(`Failed to load data from ${this.path}`))
+    }
+    this.report = {
+      ...this.report,
+      date: new Date(this.report.date),
+      equipment: this.report.equipment.map((equip, index) => ({
+        ...equip,
+        index,
+      })),
+    }
     await this.requestUpdate()
   }
 

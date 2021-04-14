@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'https://cdn.skypack.dev/lit-element'
+import { LitElement, html, css } from 'lit-element'
 import '/component/page.js'
 import '/component/map.js'
 

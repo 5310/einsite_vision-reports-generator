@@ -1,4 +1,4 @@
-import { LitElement, svg } from 'https://cdn.skypack.dev/lit-element'
+import { LitElement, svg } from 'lit-element'
 
 export default class VisionReportMapCanyonRockForestville extends LitElement {
   static get properties() {
